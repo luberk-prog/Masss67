@@ -1,0 +1,136 @@
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img, video { display: block; max-width: 100%; }
+button, input { font: inherit; border: none; background: none; cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ─── Tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Neutrals */
+  --bg:        #0A0A0B;
+  --surface:   #111113;
+  --card:      #161618;
+  --card-hover:#1C1C1F;
+  --border:    rgba(255, 255, 255, 0.07);
+  --border-md: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text:      #F4F4F5;
+  --text-2:    #A1A1AA;
+  --text-3:    #52525B;
+
+  /* Accent — used only on primary action buttons */
+  --accent:    #6C4DFF;
+  --accent-hov:#7B5CFF;
+
+  /* Status */
+  --live:      #22C55E;
+  --warn:      #F59E0B;
+
+  /* Type */
+  --f-head: 'Outfit', sans-serif;
+  --f-body: 'Inter', sans-serif;
+
+  /* Spacing (8pt) */
+  --sp-1: 8px;  --sp-2: 16px; --sp-3: 24px;
+  --sp-4: 32px; --sp-5: 40px; --sp-6: 48px;
+  --sp-8: 64px; --sp-10: 80px;
+
+  /* Radii */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px;
+  --r-xl: 20px; --r-pill: 9999px;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--f-head);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ─── Shared Layout ──────────────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 var(--sp-4);
+}
+
+/* ─── Shared Buttons ─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-head);
+  font-weight: 600;
+  border-radius: var(--r-pill);
+  transition: all .2s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 22px;
+  font-size: 14px;
+}
+.btn-primary:hover { background: var(--accent-hov); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  padding: 10px 22px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.13); border-color: var(--border-md); }
+
+/* ─── Section Header ─────────────────────────────────────────── */
+.rail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 var(--sp-4);
+  margin-bottom: var(--sp-2);
+}
+
+.rail-title {
+  font-family: var(--f-head);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.2px;
+}
+
+.rail-link {
+  font-size: 13px;
+  color: var(--text-2);
+  font-weight: 500;
+  transition: color .2s;
+}
+.rail-link:hover { color: var(--text); }
+
+/* ─── Fade-in on scroll ──────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp .5s ease forwards;
+}
+.fade-up:nth-child(2) { animation-delay: .05s; }
+.fade-up:nth-child(3) { animation-delay: .10s; }
+.fade-up:nth-child(4) { animation-delay: .15s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: none; }
+}
