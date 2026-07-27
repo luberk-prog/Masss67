@@ -419,8 +419,69 @@ h1, h2, h3, h4, h5 {
   to   { box-shadow: 0 0 12px rgba(239, 68, 68, 0.8); }
 }
 
-/* ─── Football Universe Rail ────────────────────────────── */
-.fu-rail {
+/* ─── Discovery System ─────────────────────────────── */
+
+/* ── Section Header ────────────────────────────────── */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-header__text {
+  min-width: 0;
+}
+
+.section-header__title {
+  font-family: var(--f-head);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.section-header__subtitle {
+  font-size: 14px;
+  color: var(--text-3);
+  line-height: 1.45;
+  max-width: 560px;
+}
+
+/* ── View All Button ───────────────────────────────── */
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--f-head);
+  color: var(--accent);
+  padding: 7px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.view-all-btn:hover {
+  color: var(--accent-hov);
+  border-color: var(--border-hover);
+}
+
+.view-all-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Discovery Rail ────────────────────────────────── */
+.discovery-rail {
   display: flex;
   gap: 16px;
   overflow-x: auto;
@@ -429,13 +490,26 @@ h1, h2, h3, h4, h5 {
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  cursor: grab;
+  outline: none;
 }
 
-.fu-rail::-webkit-scrollbar {
+.discovery-rail::-webkit-scrollbar {
   display: none;
 }
 
-.fu-card {
+.discovery-rail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.discovery-rail:active {
+  cursor: grabbing;
+}
+
+/* ── Discovery Card ────────────────────────────────── */
+.discovery-card {
   width: 320px;
   height: 220px;
   border-radius: 16px;
@@ -447,14 +521,20 @@ h1, h2, h3, h4, h5 {
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   border: 1px solid var(--border);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--card);
 }
 
-.fu-card:hover {
+.discovery-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(0,0,0,0.5);
 }
 
-.fu-card-img {
+.discovery-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.discovery-card__img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -464,17 +544,17 @@ h1, h2, h3, h4, h5 {
   transition: transform 0.2s ease;
 }
 
-.fu-card:hover .fu-card-img {
+.discovery-card:hover .discovery-card__img {
   transform: scale(1.03);
 }
 
-.fu-card-overlay {
+.discovery-card__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(14,17,24,0.92) 0%, rgba(14,17,24,0.40) 50%, transparent 100%);
 }
 
-.fu-card-content {
+.discovery-card__content {
   position: absolute;
   inset: 0;
   display: flex;
@@ -483,7 +563,7 @@ h1, h2, h3, h4, h5 {
   padding: 16px;
 }
 
-.fu-card-title {
+.discovery-card__title {
   font-family: var(--f-head);
   font-size: 20px;
   font-weight: 800;
@@ -493,7 +573,7 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 6px;
 }
 
-.fu-card-meta {
+.discovery-card__meta {
   display: flex;
   gap: 12px;
   font-size: 11px;
@@ -501,7 +581,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--f-num);
 }
 
-.fu-play-btn {
+.discovery-card__play {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -510,8 +590,35 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
-.fu-card:hover .fu-play-btn {
+.discovery-card:hover .discovery-card__play {
   transform: scale(1.1);
+}
+
+/* ── Discovery Empty State ─────────────────────────── */
+.discovery-empty {
+  margin: 0 32px;
+  padding: 40px 24px;
+  border-radius: var(--r-md);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.discovery-empty__title {
+  font-family: var(--f-head);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+
+.discovery-empty__message {
+  font-size: 13px;
+  color: var(--text-3);
+  max-width: 360px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
