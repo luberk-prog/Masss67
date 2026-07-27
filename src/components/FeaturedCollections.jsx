@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import CollectionCard from './CollectionCard';
+import CollectionTile from './CollectionTile';
 
 const COLLECTIONS = [
   {
@@ -114,16 +114,17 @@ export default function FeaturedCollections({ onOpenQuiz }) {
         scrollbarWidth: 'none',
       }}>
         {COLLECTIONS.map(col => (
-          <CollectionCard
+          <CollectionTile
             key={col.id}
             size="lg"
             title={col.title}
-            badge={col.badge}
-            questions={col.questions}
-            difficulty={col.difficulty}
-            duration={col.duration}
-            players={col.players}
+            category={col.badge}
+            description={col.description}
             image={col.image}
+            questionCount={col.questions}
+            difficulty={col.difficulty}
+            estimatedDuration={col.duration}
+            playersOnline={col.players}
             onPlay={onOpenQuiz}
           />
         ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import CollectionCard from './CollectionCard';
+import CollectionTile from './CollectionTile';
 
 const TRENDING = [
   {
@@ -134,15 +134,16 @@ export default function TrendingNow({ onOpenQuiz }) {
         scrollbarWidth: 'none',
       }}>
         {TRENDING.map(item => (
-          <CollectionCard
+          <CollectionTile
             key={item.id}
             title={item.title}
-            badge={item.badge}
-            questions={item.questions}
-            difficulty={item.difficulty}
-            duration={item.duration}
-            players={item.players}
+            category={item.badge}
+            description={item.description}
             image={item.image}
+            questionCount={item.questions}
+            difficulty={item.difficulty}
+            estimatedDuration={item.duration}
+            playersOnline={item.players}
             onPlay={onOpenQuiz}
           />
         ))}
