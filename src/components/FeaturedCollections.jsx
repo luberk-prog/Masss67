@@ -1,107 +1,133 @@
 import React from 'react';
-import { Star, Play } from 'lucide-react';
-
+import { ChevronRight } from 'lucide-react';
+import CollectionCard from './CollectionCard';
 
 const COLLECTIONS = [
   {
-    id: 'deck-1',
+    id: 'gaming-history',
     title: 'Interactive Media & Gaming History',
-    questions: '150 Questions',
-    author: 'Curated by MASSS67',
-    completion: '65% Complete',
-    rating: '4.98'
+    badge: 'Curated',
+    questions: 150,
+    difficulty: 'Medium',
+    duration: '5 mins',
+    players: '2,840',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700&q=80&auto=format&fit=crop',
   },
   {
-    id: 'deck-2',
+    id: 'deep-ocean',
     title: 'Deep Ocean & Astrophysical Anomalies',
-    questions: '120 Questions',
-    author: 'AstroGeek_X',
-    completion: '20% Complete',
-    rating: '4.91'
+    badge: 'Science',
+    questions: 120,
+    difficulty: 'Hard',
+    duration: '4 mins',
+    players: '1,220',
+    image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=700&q=80&auto=format&fit=crop',
   },
   {
-    id: 'deck-3',
+    id: 'world-architecture',
     title: 'World Architectural Monuments & Cartography',
-    questions: '200 Questions',
-    author: 'GeoMaster_EU',
-    completion: '100% Mastered',
-    rating: '5.0'
-  }
+    badge: 'History',
+    questions: 200,
+    difficulty: 'Expert',
+    duration: '6 mins',
+    players: '940',
+    image: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=700&q=80&auto=format&fit=crop',
+  },
+  {
+    id: 'cinema-greats',
+    title: 'Golden Age of Cinema & Film History',
+    badge: 'Movies',
+    questions: 130,
+    difficulty: 'Medium',
+    duration: '4 mins',
+    players: '1,760',
+    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=700&q=80&auto=format&fit=crop',
+  },
 ];
 
 export default function FeaturedCollections({ onOpenQuiz }) {
   return (
-    <section style={{
-      maxWidth: '1600px',
-      margin: '40px auto',
-      padding: '0 24px'
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '20px' }}>
+    <section style={{ padding: '56px 0 0' }}>
+      {/* Header */}
+      <div style={{
+        maxWidth: '1520px',
+        margin: '0 auto',
+        padding: '0 32px',
+        marginBottom: '24px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+      }}>
         <div>
-          <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            CURATED PLAYLISTS
-          </div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#FFF', marginTop: '2px' }}>
+          <h2 style={{
+            fontFamily: 'var(--f-head)',
+            fontSize: '24px',
+            fontWeight: 800,
+            color: 'var(--text)',
+            letterSpacing: '-0.3px',
+            marginBottom: '4px',
+          }}>
             Featured Collections
           </h2>
+          <p style={{ fontSize: '14px', color: 'var(--text-3)' }}>
+            Editorially curated quiz collections, updated weekly.
+          </p>
         </div>
+
+        <button
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            fontSize: '13px',
+            fontWeight: 600,
+            fontFamily: 'var(--f-head)',
+            color: 'var(--text-3)',
+            padding: '7px 14px',
+            borderRadius: '10px',
+            border: '1px solid var(--border)',
+            background: 'transparent',
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = 'var(--text-2)';
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = 'var(--text-3)';
+            e.currentTarget.style.borderColor = 'var(--border)';
+          }}
+        >
+          Browse all <ChevronRight size={14} />
+        </button>
       </div>
 
+      {/* Horizontal scroll rail — larger cards for editorial feel */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-        gap: '20px'
+        display: 'flex',
+        gap: '20px',
+        overflowX: 'auto',
+        padding: '4px 32px 32px',
+        scrollSnapType: 'x mandatory',
+        msOverflowStyle: 'none',
+        scrollbarWidth: 'none',
       }}>
-        {COLLECTIONS.map((col) => (
-          <div
+        {COLLECTIONS.map(col => (
+          <CollectionCard
             key={col.id}
-            className="game-card"
-            onClick={onOpenQuiz}
-            style={{
-              padding: '24px',
-              display: 'flex',
-              flexDirection: 'column',
-              justify: 'space-between',
-              minHeight: '200px',
-              cursor: 'pointer'
-            }}
-          >
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                <span className="badge badge-ranked" style={{ fontSize: '0.7rem' }}>
-                  {col.questions}
-                </span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--warning)', fontFamily: 'var(--font-num)', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600 }}>
-                  <Star size={12} fill="var(--warning)" /> {col.rating}
-                </span>
-              </div>
-
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#FFF', lineHeight: 1.3 }}>
-                {col.title}
-              </h3>
-              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                Author: {col.author}
-              </p>
-            </div>
-
-            <div style={{
-              borderTop: '1px solid var(--border)',
-              paddingTop: '14px',
-              marginTop: '16px',
-              display: 'flex',
-              justify: 'space-between',
-              alignItems: 'center'
-            }}>
-              <span style={{ fontSize: '0.78rem', color: 'var(--text-main)', fontWeight: 600, fontFamily: 'var(--font-num)' }}>
-                {col.completion}
-              </span>
-
-              <button className="btn-secondary" style={{ padding: '6px 14px', fontSize: '0.78rem' }}>
-                <Play size={12} fill="#FFF" /> Play Playlist
-              </button>
-            </div>
-          </div>
+            size="lg"
+            title={col.title}
+            badge={col.badge}
+            questions={col.questions}
+            difficulty={col.difficulty}
+            duration={col.duration}
+            players={col.players}
+            image={col.image}
+            onPlay={onOpenQuiz}
+          />
         ))}
+        <div style={{ width: '8px', flexShrink: 0 }} />
       </div>
     </section>
   );

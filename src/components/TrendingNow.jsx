@@ -1,166 +1,152 @@
 import React from 'react';
-import { Users, Clock, Play, Trophy, Gamepad2, Code2, Landmark, Star } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import CollectionCard from './CollectionCard';
 
-const TRENDING_ARENAS = [
+const TRENDING = [
   {
     id: 'football-cl',
     title: 'UEFA Champions League & World Football',
-    category: 'SPORTS ARENA',
-    Icon: Trophy,
-    activePlayers: '1,840',
-    duration: '3 Mins',
-    xpMultiplier: '2.5x XP',
-    difficulty: 'HARD',
-    rating: '4.9'
+    badge: 'Football',
+    questions: 200,
+    difficulty: 'Hard',
+    duration: '6 mins',
+    players: '1,840',
+    image: 'https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=700&q=80&auto=format&fit=crop',
   },
   {
     id: 'gaming-lore',
-    title: 'Gaming & Interactive Media Lore',
-    category: 'GAMING ARENA',
-    Icon: Gamepad2,
-    activePlayers: '2,310',
-    duration: '4 Mins',
-    xpMultiplier: '2.0x XP',
-    difficulty: 'MEDIUM',
-    rating: '4.95'
+    title: 'Gaming & Interactive Media History',
+    badge: 'Gaming',
+    questions: 150,
+    difficulty: 'Medium',
+    duration: '4 mins',
+    players: '2,310',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700&q=80&auto=format&fit=crop',
   },
   {
     id: 'ai-tech',
     title: 'Computer Science & Software Architecture',
-    category: 'TECH ARENA',
-    Icon: Code2,
-    activePlayers: '980',
-    duration: '5 Mins',
-    xpMultiplier: '3.0x XP',
-    difficulty: 'EXPERT',
-    rating: '4.88'
+    badge: 'Technology',
+    questions: 120,
+    difficulty: 'Expert',
+    duration: '5 mins',
+    players: '980',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80&auto=format&fit=crop',
   },
   {
     id: 'ancient-history',
     title: 'Ancient Empires & Classical Warfare',
-    category: 'HISTORY ARENA',
-    Icon: Landmark,
-    activePlayers: '1,120',
-    duration: '4 Mins',
-    xpMultiplier: '1.8x XP',
-    difficulty: 'MEDIUM',
-    rating: '4.92'
-  }
+    badge: 'History',
+    questions: 140,
+    difficulty: 'Medium',
+    duration: '4 mins',
+    players: '1,120',
+    image: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=700&q=80&auto=format&fit=crop',
+  },
+  {
+    id: 'space-science',
+    title: 'Astrophysics & Deep Space Exploration',
+    badge: 'Science',
+    questions: 110,
+    difficulty: 'Hard',
+    duration: '4 mins',
+    players: '760',
+    image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=700&q=80&auto=format&fit=crop',
+  },
+  {
+    id: 'cinema',
+    title: 'Golden Age of Cinema & Film History',
+    badge: 'Movies',
+    questions: 130,
+    difficulty: 'Medium',
+    duration: '4 mins',
+    players: '1,450',
+    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=700&q=80&auto=format&fit=crop',
+  },
 ];
 
 export default function TrendingNow({ onOpenQuiz }) {
   return (
-    <section style={{
-      maxWidth: '1600px',
-      margin: '40px auto',
-      padding: '0 24px'
-    }}>
+    <section style={{ padding: '56px 0 0' }}>
       {/* Header */}
       <div style={{
+        maxWidth: '1520px',
+        margin: '0 auto',
+        padding: '0 32px',
+        marginBottom: '24px',
         display: 'flex',
-        justify: 'space-between',
+        justifyContent: 'space-between',
         alignItems: 'flex-end',
-        marginBottom: '20px'
       }}>
         <div>
-          <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            POPULAR SELECTIONS
-          </div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#FFF', marginTop: '2px' }}>
-            Trending Arenas
+          <h2 style={{
+            fontFamily: 'var(--f-head)',
+            fontSize: '24px',
+            fontWeight: 800,
+            color: 'var(--text)',
+            letterSpacing: '-0.3px',
+            marginBottom: '4px',
+          }}>
+            Trending Right Now
           </h2>
+          <p style={{ fontSize: '14px', color: 'var(--text-3)' }}>
+            The most active collections across the platform.
+          </p>
         </div>
 
-        <a href="#" style={{
-          color: 'var(--text-muted)',
-          fontSize: '0.85rem',
-          fontWeight: 600,
-          textDecoration: 'none'
-        }}>
-          Explore All Arenas →
-        </a>
+        <button
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            fontSize: '13px',
+            fontWeight: 600,
+            fontFamily: 'var(--f-head)',
+            color: 'var(--text-3)',
+            padding: '7px 14px',
+            borderRadius: '10px',
+            border: '1px solid var(--border)',
+            background: 'transparent',
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = 'var(--text-2)';
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = 'var(--text-3)';
+            e.currentTarget.style.borderColor = 'var(--border)';
+          }}
+        >
+          See all <ChevronRight size={14} />
+        </button>
       </div>
 
-      {/* Grid */}
+      {/* Horizontal scroll rail */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-        gap: '20px'
+        display: 'flex',
+        gap: '16px',
+        overflowX: 'auto',
+        padding: '4px 32px 32px',
+        scrollSnapType: 'x mandatory',
+        msOverflowStyle: 'none',
+        scrollbarWidth: 'none',
       }}>
-        {TRENDING_ARENAS.map((arena) => {
-          const ArenaIcon = arena.Icon;
-          return (
-            <div
-              key={arena.id}
-              className="game-card"
-              onClick={onOpenQuiz}
-              style={{
-                padding: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justify: 'space-between',
-                minHeight: '230px',
-                cursor: 'pointer'
-              }}
-            >
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-                  <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: 'var(--r-sm)',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justify: 'center',
-                    border: '1px solid var(--border)'
-                  }}>
-                    <ArenaIcon size={20} color="var(--text-main)" />
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-                    <span className="badge badge-ranked" style={{ fontSize: '0.68rem' }}>
-                      {arena.xpMultiplier}
-                    </span>
-                    <span style={{ fontSize: '0.72rem', color: 'var(--warning)', fontFamily: 'var(--font-num)', display: 'flex', alignItems: 'center', gap: '3px', fontWeight: 600 }}>
-                      <Star size={11} fill="var(--warning)" /> {arena.rating}
-                    </span>
-                  </div>
-                </div>
-
-                <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', letterSpacing: '0.08em', fontWeight: 700 }}>
-                  {arena.category}
-                </span>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#FFF', marginTop: '4px', lineHeight: 1.3 }}>
-                  {arena.title}
-                </h3>
-              </div>
-
-              {/* Bottom Specs */}
-              <div style={{
-                borderTop: '1px solid var(--border)',
-                paddingTop: '14px',
-                marginTop: '16px',
-                display: 'flex',
-                justify: 'space-between',
-                alignItems: 'center'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Users size={13} color="#4ADE80" /> {arena.activePlayers} Live
-                  </span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Clock size={13} /> {arena.duration}
-                  </span>
-                </div>
-
-                <button className="btn-secondary" style={{ padding: '6px 14px', fontSize: '0.78rem' }}>
-                  <Play size={12} fill="#FFF" /> Play
-                </button>
-              </div>
-            </div>
-          );
-        })}
+        {TRENDING.map(item => (
+          <CollectionCard
+            key={item.id}
+            title={item.title}
+            badge={item.badge}
+            questions={item.questions}
+            difficulty={item.difficulty}
+            duration={item.duration}
+            players={item.players}
+            image={item.image}
+            onPlay={onOpenQuiz}
+          />
+        ))}
+        <div style={{ width: '8px', flexShrink: 0 }} />
       </div>
     </section>
   );
