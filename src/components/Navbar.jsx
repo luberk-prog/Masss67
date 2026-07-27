@@ -1,235 +1,234 @@
-import React, { useState } from 'react';
-import { 
-  Trophy, 
-  Users, 
-  Gamepad2, 
-  Crown,
-  ChevronDown,
-  Flame,
-  Volume2,
-  VolumeX,
-  Coins,
-  Gem
-} from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, ChevronDown, User } from 'lucide-react';
+
+const NAV_LINKS = [
+  { id: 'discover',      label: 'Discover' },
+  { id: 'categories',    label: 'Categories' },
+  { id: 'parties',       label: 'Parties' },
+  { id: 'leaderboards',  label: 'Leaderboards' },
+];
 
 export default function Navbar({ onOpenQuiz, onOpenParty }) {
-  const [muted, setMuted] = useState(false);
-  const [activeTab, setActiveTab] = useState('arenas');
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [active, setActive]         = useState('discover');
+  const [scrolled, setScrolled]     = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+
+  /* Add a subtle background tint on scroll */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <header style={{
-      position: 'sticky',
-      top: 0,
+      position: 'fixed',
+      top: '16px',
+      left: '50%',
+      transform: 'translateX(-50%)',
       zIndex: 1000,
-      background: 'rgba(8, 11, 22, 0.92)',
-      backdropFilter: 'blur(16px)',
-      WebkitBackdropFilter: 'blur(16px)',
-      borderBottom: '1px solid var(--border)'
+      width: 'calc(100% - 48px)',
+      maxWidth: '1280px',
     }}>
-      {/* Top Status Bar */}
       <div style={{
-        background: 'rgba(17, 24, 39, 0.5)',
-        borderBottom: '1px solid var(--border)',
-        padding: '6px 24px',
-        fontSize: '0.75rem',
-        display: 'flex',
-        justify: 'space-between',
-        alignItems: 'center',
-        color: 'var(--text-muted)'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#4ADE80', fontWeight: 600 }}>
-            <span className="live-dot" /> SEASON 4 LIVE
-          </span>
-          <span style={{ color: 'var(--border-bright)' }}>|</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Trophy size={13} color="var(--warning)" /> Grand Tournament: <strong style={{ color: '#FFF', fontFamily: 'var(--font-num)' }}>$50,000 GTD</strong>
-          </span>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
-          <button 
-            onClick={() => setMuted(!muted)}
-            style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--text-muted)', fontSize: '0.75rem' }}
-          >
-            {muted ? <VolumeX size={14} /> : <Volume2 size={14} color="var(--text-muted)" />}
-            {muted ? 'Audio Off' : 'Sound Effects'}
-          </button>
-          <span>Server: <strong style={{ color: '#4ADE80' }}>EU-WEST (16ms)</strong></span>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <div style={{
-        maxWidth: '1600px',
-        margin: '0 auto',
-        padding: '12px 24px',
         display: 'flex',
         alignItems: 'center',
-        justify: 'space-between',
-        gap: '24px'
+        justifyContent: 'space-between',
+        gap: '24px',
+        padding: '10px 20px',
+        borderRadius: '16px',
+        background: scrolled
+          ? 'rgba(14,17,24,0.92)'
+          : 'rgba(14,17,24,0.80)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        boxShadow: scrolled
+          ? '0 8px 32px rgba(0,0,0,0.4)'
+          : '0 4px 16px rgba(0,0,0,0.2)',
+        transition: 'background 0.2s ease, box-shadow 0.2s ease',
       }}>
-        {/* Brand Logo & Navigation */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
-          {/* Brand Wordmark (Single Solid Color, Clean & Timeless per Brand DNA) */}
-          <a href="#" className="brand-wordmark" style={{ fontSize: '1.35rem' }}>
-            MASSS67
-          </a>
 
-          {/* Navigation Links */}
-          <nav style={{ display: 'flex', gap: '4px' }}>
-            {[
-              { id: 'arenas', label: 'Arenas', icon: Gamepad2 },
-              { id: 'parties', label: 'Live Parties', icon: Users, badge: '128' },
-              { id: 'ranked', label: 'Ranked League', icon: Crown },
-              { id: 'pass', label: 'Battle Pass', icon: Flame },
-              { id: 'leaderboards', label: 'Leaderboards', icon: Trophy }
-            ].map((item) => {
-              const Icon = item.icon;
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setActiveTab(item.id);
-                    if (item.id === 'parties' && onOpenParty) onOpenParty();
-                  }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 16px',
-                    borderRadius: 'var(--r-pill)',
-                    color: isActive ? '#FFF' : 'var(--text-muted)',
-                    background: isActive ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
-                    border: isActive ? '1px solid var(--border-bright)' : '1px solid transparent',
-                    fontFamily: 'var(--font-heading)',
-                    fontWeight: 600,
-                    fontSize: '0.85rem',
-                    transition: 'all 0.15s ease',
-                    cursor: 'pointer'
-                  }}
-                >
-                  <Icon size={15} color={isActive ? '#FFF' : 'currentColor'} />
-                  {item.label}
-                  {item.badge && (
-                    <span className="badge badge-live" style={{ padding: '1px 6px', fontSize: '0.65rem' }}>
-                      {item.badge}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-        </div>
+        {/* ── Left: Wordmark ── */}
+        <a
+          href="#"
+          style={{
+            fontFamily: 'var(--f-head)',
+            fontWeight: 800,
+            fontSize: '18px',
+            letterSpacing: '-0.5px',
+            color: 'var(--text)',
+            flexShrink: 0,
+          }}
+        >
+          MASSS67
+        </a>
 
-        {/* Right Section: Player Stats & Quick Launch */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          {/* Player Level & XP */}
-          <div style={{
-            background: 'var(--card)',
-            border: '1px solid var(--border)',
-            padding: '6px 14px',
-            borderRadius: 'var(--r-pill)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span className="badge badge-ranked" style={{ fontSize: '0.7rem' }}>LVL 42</span>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-                <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-num)' }}>
-                  7,850 / 10,000 XP
-                </span>
-                <div style={{ width: '70px', height: '3px', background: 'rgba(255,255,255,0.1)', borderRadius: '2px', overflow: 'hidden' }}>
-                  <div style={{ width: '78.5%', height: '100%', background: 'var(--accent)' }} />
-                </div>
-              </div>
-            </div>
+        {/* ── Center: Nav Links + Search ── */}
+        <nav style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '2px',
+        }}>
+          {NAV_LINKS.map(link => {
+            const isActive = active === link.id;
+            return (
+              <button
+                key={link.id}
+                onClick={() => {
+                  setActive(link.id);
+                  if (link.id === 'parties' && onOpenParty) onOpenParty();
+                }}
+                style={{
+                  padding: '7px 14px',
+                  borderRadius: '10px',
+                  fontSize: '14px',
+                  fontWeight: isActive ? 600 : 500,
+                  fontFamily: 'var(--f-head)',
+                  color: isActive ? 'var(--text)' : 'var(--text-3)',
+                  background: isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+                  transition: 'all 0.15s ease',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={e => {
+                  if (!isActive) e.currentTarget.style.color = 'var(--text-2)';
+                }}
+                onMouseLeave={e => {
+                  if (!isActive) e.currentTarget.style.color = 'var(--text-3)';
+                }}
+              >
+                {link.label}
+              </button>
+            );
+          })}
 
-            <div style={{ width: '1px', height: '18px', background: 'var(--border)' }} />
-
-            {/* Currency (Using clean SVG icons instead of emojis) */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.8rem', fontFamily: 'var(--font-num)', fontWeight: 600 }}>
-              <span style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Coins size={14} color="var(--warning)" /> 14,250
-              </span>
-              <span style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Gem size={14} color="var(--accent-secondary)" /> 480
-              </span>
-            </div>
-          </div>
-
-          {/* Quick Play CTA */}
-          <button 
-            className="btn-primary"
-            onClick={onOpenQuiz}
+          {/* Search button */}
+          <button
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '7px 14px',
+              borderRadius: '10px',
+              fontSize: '14px',
+              fontWeight: 500,
+              fontFamily: 'var(--f-head)',
+              color: 'var(--text-3)',
+              background: 'transparent',
+              transition: 'all 0.15s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = 'var(--text-2)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}
           >
-            Quick Match
+            <Search size={15} />
+            Search
           </button>
+        </nav>
 
-          {/* Player Profile Widget */}
+        {/* ── Right: Profile + Play Now ── */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+
+          {/* Profile Avatar */}
           <div style={{ position: 'relative' }}>
-            <button 
-              onClick={() => setShowProfileMenu(!showProfileMenu)}
+            <button
+              onClick={() => setProfileOpen(prev => !prev)}
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'var(--card)',
+                padding: '5px 10px 5px 5px',
+                borderRadius: '10px',
+                background: 'rgba(255,255,255,0.05)',
                 border: '1px solid var(--border)',
-                padding: '4px 10px 4px 4px',
-                borderRadius: 'var(--r-pill)',
-                cursor: 'pointer'
+                transition: 'all 0.15s ease',
+                cursor: 'pointer',
               }}
+              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--border)'}
             >
+              {/* Avatar circle */}
               <div style={{
-                width: '32px',
-                height: '32px',
+                width: '28px',
+                height: '28px',
                 borderRadius: '50%',
-                background: 'var(--surface-hover)',
+                background: 'var(--accent)',
                 display: 'flex',
                 alignItems: 'center',
-                justify: 'center',
-                fontWeight: 700,
-                color: '#FFF',
-                border: '1px solid var(--border-bright)',
-                fontSize: '0.82rem'
+                justifyContent: 'center',
+                flexShrink: 0,
               }}>
-                VX
+                <User size={14} color="#fff" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', lineHeight: '1.2' }}>
-                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#FFF' }}>Vortex_X</span>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>GRANDMASTER</span>
-              </div>
-              <ChevronDown size={14} color="var(--text-muted)" />
+              <span style={{
+                fontSize: '13px',
+                fontWeight: 600,
+                color: 'var(--text)',
+                fontFamily: 'var(--f-head)',
+              }}>
+                Vortex_X
+              </span>
+              <ChevronDown
+                size={13}
+                color="var(--text-3)"
+                style={{
+                  transform: profileOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.2s ease',
+                }}
+              />
             </button>
 
-            {showProfileMenu && (
-              <div className="glass-panel" style={{
+            {/* Dropdown */}
+            {profileOpen && (
+              <div style={{
                 position: 'absolute',
                 right: 0,
-                top: '46px',
-                width: '220px',
-                borderRadius: 'var(--r-md)',
-                padding: '12px',
-                boxShadow: '0 16px 36px rgba(0,0,0,0.5)',
-                zIndex: 100
+                top: 'calc(100% + 8px)',
+                minWidth: '180px',
+                background: 'var(--surface)',
+                border: '1px solid var(--border)',
+                borderRadius: '14px',
+                padding: '6px',
+                boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
+                zIndex: 200,
               }}>
-                <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: '8px', marginBottom: '8px' }}>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Player Profile</div>
-                  <div style={{ fontWeight: 700, color: '#FFF', fontSize: '0.85rem' }}>Vortex_X</div>
-                </div>
-                <button style={{ width: '100%', textAlign: 'left', padding: '8px', borderRadius: '6px', color: '#FFF', fontSize: '0.82rem' }}>Career & Stats</button>
-                <button style={{ width: '100%', textAlign: 'left', padding: '8px', borderRadius: '6px', color: '#FFF', fontSize: '0.82rem' }}>Match History</button>
-                <button style={{ width: '100%', textAlign: 'left', padding: '8px', borderRadius: '6px', color: '#FFF', fontSize: '0.82rem' }}>Preferences</button>
-                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '8px', marginTop: '8px' }}>
-                  <button style={{ width: '100%', textAlign: 'left', padding: '8px', borderRadius: '6px', color: 'var(--danger)', fontSize: '0.82rem' }}>Sign Out</button>
-                </div>
+                {['Profile', 'Match History', 'Settings', 'Sign Out'].map((item, i) => (
+                  <button
+                    key={item}
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      textAlign: 'left',
+                      padding: '9px 12px',
+                      borderRadius: '10px',
+                      fontSize: '13px',
+                      fontWeight: 500,
+                      color: i === 3 ? 'var(--danger)' : 'var(--text-2)',
+                      transition: 'all 0.12s ease',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                      if (i !== 3) e.currentTarget.style.color = 'var(--text)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = i === 3 ? 'var(--danger)' : 'var(--text-2)';
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
               </div>
             )}
           </div>
+
+          {/* Play Now CTA */}
+          <button
+            className="btn btn-primary"
+            onClick={onOpenQuiz}
+            style={{ padding: '9px 20px', fontSize: '14px' }}
+          >
+            Play Now
+          </button>
         </div>
       </div>
     </header>
