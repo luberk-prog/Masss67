@@ -24,8 +24,7 @@ function App() {
         onOpenParty={() => setPartyOpen(true)}
       />
 
-      {/* Offset content below fixed floating navbar */}
-      <div style={{ paddingTop: '80px' }}>
+      <div className="offset-navbar">
         <main>
           {/* 1. Discovery Hero */}
           <DiscoveryHero

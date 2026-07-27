@@ -57,6 +57,34 @@ ul { list-style: none; }
   --r-lg:   22px;
   --r-hero: 28px;
   --r-pill: 9999px;
+
+  /* ── Missing Tokens (aliases) */
+  --card:            var(--surface);
+  --surface-hover:   var(--surface-float);
+  --text-muted:      var(--text-3);
+  --text-dark:       var(--text-disabled);
+  --text-main:       var(--text);
+  --text-light:      var(--text-2);
+  --border-bright:   var(--border-hover);
+  --primary:         #5E6BFF;
+  --primary-hover:   #7280FF;
+  --accent-secondary:var(--accent);
+  --font-heading:    var(--f-head);
+  --font-num:        var(--f-num);
+  --font-body:       var(--f-body);
+  --r-xl:            var(--r-hero);
+  --shadow-sm:       0 2px 8px rgba(0,0,0,0.18);
+  --shadow-md:       0 4px 24px rgba(0,0,0,0.18);
+  --shadow-lg:       0 16px 40px rgba(0,0,0,0.42);
+  --transition-fast: 0.12s ease;
+  --transition-base: 0.15s ease;
+  --transition-smooth: 0.2s ease;
+  --z-base:          1;
+  --z-content:       10;
+  --z-navbar:        1000;
+  --z-dropdown:      200;
+  --z-modal:         100;
+  --z-overlay:       50;
 }
 
 /* ─── Base ───────────────────────────────────────────────────── */
@@ -78,11 +106,25 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ─── Shared Layout ──────────────────────────────────────────── */
-.wrap {
+.wrap, .content {
   width: 100%;
-  max-width: 1520px;
-  margin: 0 auto;
-  padding: 0 var(--sp-4);
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--sp-3);
+  padding-right: var(--sp-3);
+}
+
+.section {
+  padding-top: var(--sp-5);
+}
+
+.section--flush {
+  padding-top: 0;
+}
+
+.offset-navbar {
+  padding-top: 80px;
 }
 
 /* ─── Buttons ─────────────────────────────────────────────────── */
@@ -121,6 +163,49 @@ h1, h2, h3, h4, h5 {
   color: var(--text-2);
 }
 .btn-ghost:hover { color: var(--text); }
+
+/* ─── Button Sizes ───────────────────────────────────────────── */
+.btn--sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.btn--md {
+  padding: 11px 22px;
+  font-size: 14px;
+}
+
+.btn--lg {
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+/* ─── Button States ──────────────────────────────────────────── */
+.btn--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn--loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
 /* ─── Section Rails ──────────────────────────────────────────── */
 .rail-header {
@@ -193,4 +278,240 @@ h1, h2, h3, h4, h5 {
 
 @keyframes fadeUp {
   to { opacity: 1; transform: none; }
+}
+
+/* ─── Surfaces ────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+/* ─── Cards ────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.card-outlined {
+  border-color: var(--border-bright);
+}
+
+.card-interactive {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.game-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* ─── Badges ───────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--f-head);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.badge--sm {
+  font-size: 10px;
+  padding: 2px 8px;
+}
+
+.badge--md {
+  font-size: 11px;
+  padding: 4px 10px;
+}
+
+.badge-default {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-3);
+}
+
+.badge-live {
+  background: rgba(45,212,191,0.15);
+  color: var(--live);
+}
+
+.badge-ranked {
+  background: rgba(245,158,11,0.15);
+  color: var(--warning);
+}
+
+.badge-accent {
+  background: rgba(94,107,255,0.15);
+  color: var(--accent);
+}
+
+.badge-success {
+  background: rgba(34,197,94,0.15);
+  color: var(--success);
+}
+
+.badge-warning {
+  background: rgba(245,158,11,0.15);
+  color: var(--warning);
+}
+
+/* ─── Utility Animations ──────────────────────────────────────── */
+.animate-glow {
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 4px rgba(239, 68, 68, 0.4); }
+  to   { box-shadow: 0 0 12px rgba(239, 68, 68, 0.8); }
+}
+
+/* ─── Football Universe Rail ────────────────────────────── */
+.fu-rail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 32px 32px;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.fu-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.fu-card {
+  width: 320px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+}
+
+.fu-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.2s ease;
+}
+
+.fu-card:hover .fu-card-img {
+  transform: scale(1.03);
+}
+
+.fu-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,17,24,0.92) 0%, rgba(14,17,24,0.40) 50%, transparent 100%);
+}
+
+.fu-card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.fu-card-title {
+  font-family: var(--f-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFF;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.fu-card-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: rgba(245,247,250,0.7);
+  font-family: var(--f-num);
+}
+
+.fu-play-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.fu-card:hover .fu-play-btn {
+  transform: scale(1.1);
 }

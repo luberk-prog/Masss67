@@ -1,0 +1,281 @@
+# GLOBAL DESIGN RULES (READ FIRST)
+
+Before making ANY changes, read these instructions completely and follow them exactly.
+
+These rules override all default AI design habits.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROJECT CONTEXT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+You are building MASSS67, a premium real-time multiplayer quiz platform inspired by the user experience quality of products like GeoGuessr, Spotify, Steam, and EA Sports FC—but NEVER copying any of them.
+
+The objective is to create an original product with its own visual identity.
+
+Do NOT imitate another product.
+
+Do NOT generate generic AI interfaces.
+
+Every design decision must feel handcrafted.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSOLUTE RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NEVER:
+
+• use emojis anywhere
+• use emoji-like icons
+• use clip-art
+• use cartoon illustrations
+• use anime artwork
+• use AI fantasy artwork
+• use gaming HUD graphics
+• use cyberpunk styling
+• use futuristic neon effects
+• use glowing borders
+• use oversized shadows
+• use rainbow gradients
+• use decorative gradients
+• use split-color logos
+• use fake XP systems
+• use fake currencies
+• use fake diamonds
+• use fake coins
+• use fake battle passes
+• use fake prize pools
+• use fake online counters
+• use fake statistics
+• use fake countdowns
+• use decorative widgets
+• add elements only because they "look cool"
+
+If an element does not improve usability or player engagement, remove it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DESIGN PRINCIPLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Always design for:
+
+Premium quality
+
+Clean hierarchy
+
+Fast discovery
+
+Content-first experience
+
+Real photography
+
+Consistent spacing
+
+Reusable components
+
+Professional typography
+
+Elegant interactions
+
+Minimal visual noise
+
+The interface should feel playful without becoming childish.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHOTOGRAPHY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Photography is the hero.
+
+Always prefer authentic editorial photography.
+
+Examples:
+
+Football stadiums
+
+Real players
+
+Historic landmarks
+
+Museums
+
+Science laboratories
+
+Nature
+
+Space
+
+Programming environments
+
+Concerts
+
+Architecture
+
+Never generate placeholder illustrations.
+
+Never generate fantasy artwork.
+
+Never generate AI-style graphics.
+
+Images should always feel authentic.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TYPOGRAPHY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Typography should feel premium.
+
+No futuristic fonts.
+
+No gamer fonts.
+
+No decorative fonts.
+
+No oversized headings.
+
+No excessive font weights.
+
+Text hierarchy should be clear and restrained.
+
+The typography should support the content—not compete with it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COLORS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Use a restrained color palette.
+
+One primary accent color.
+
+Neutral backgrounds.
+
+Strong contrast.
+
+Avoid loud saturation.
+
+Avoid bright green accents.
+
+Avoid random colorful sections.
+
+Avoid using multiple accent colors on the same screen unless there is a functional reason.
+
+Color should guide attention—not decorate the page.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ICONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Icons should be:
+
+Minimal
+
+Outlined
+
+Professional
+
+Consistent
+
+Do not use icons as decoration.
+
+Icons should communicate function only.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPONENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before creating a new component:
+
+Check whether an existing component can be reused.
+
+Do not duplicate layouts.
+
+Do not create one-off components.
+
+Build reusable design systems.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANIMATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Animations must feel natural.
+
+Maximum duration: 200ms.
+
+No bounce.
+
+No exaggerated scaling.
+
+No spinning.
+
+No flashy effects.
+
+Animations should improve clarity—not draw attention.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COPYWRITING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Keep copy concise.
+
+Natural.
+
+Human.
+
+Friendly.
+
+Never use AI-sounding marketing language.
+
+Never over-explain.
+
+Buttons should use clear actions:
+
+Play
+
+Join Party
+
+Create Party
+
+Continue
+
+Browse
+
+Start Quiz
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLEMENTATION RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Do not explain what you are going to build.
+
+Do not generate placeholder implementations.
+
+Do not leave TODO comments.
+
+Do not leave unfinished components.
+
+Do not simplify the requested task.
+
+Modify the existing codebase directly.
+
+Reuse existing components where possible.
+
+Maintain responsive behavior.
+
+Do not break existing functionality.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUALITY CHECK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before finishing, verify:
+
+✓ Does this feel handcrafted?
+
+✓ Does this avoid generic AI design?
+
+✓ Does this improve the player experience?
+
+✓ Is every component visually consistent?
+
+✓ Would this look like a premium commercial product?
+
+If any answer is "No," revise the solution before responding.

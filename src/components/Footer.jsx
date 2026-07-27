@@ -8,19 +8,18 @@ export default function Footer() {
       background: 'rgba(8, 11, 22, 0.95)',
       borderTop: '1px solid var(--border)',
       marginTop: '80px',
-      padding: '40px 24px 24px 24px'
+      paddingBottom: '24px'
     }}>
-      <div style={{
-        maxWidth: '1600px',
-        margin: '0 auto',
+      <div className="content" style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '32px'
+        gap: '32px',
+        paddingTop: '40px'
       }}>
         {/* Top Footer Content */}
         <div style={{
           display: 'flex',
-          justify: 'space-between',
+          justifyContent: 'space-between',
           alignItems: 'flex-start',
           flexWrap: 'wrap',
           gap: '24px'
@@ -34,7 +33,7 @@ export default function Footer() {
                 background: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
                 display: 'flex',
                 alignItems: 'center',
-                justify: 'center'
+                justifyContent: 'center'
               }}>
                 <Zap size={18} color="#FFF" />
               </div>
@@ -73,7 +72,7 @@ export default function Footer() {
           borderTop: '1px solid var(--border)',
           paddingTop: '20px',
           display: 'flex',
-          justify: 'space-between',
+          justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '16px',
