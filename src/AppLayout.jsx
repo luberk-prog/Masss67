@@ -78,7 +78,7 @@ export default function AppLayout() {
 
       <aside className="sidebar">
         <div className="sidebar__panel">
-          <div>
+          <div className="sidebar__identity">
             <div className="sidebar__title">Elite Player</div>
             <div className="sidebar__subtitle">Rank: Grandmaster</div>
           </div>

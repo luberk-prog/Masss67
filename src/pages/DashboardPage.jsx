@@ -169,20 +169,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </footer>
-
-      <nav className="bottom-nav">
-        {[
-          { label: 'Dash', icon: 'dashboard', active: true },
-          { label: 'Stats', icon: 'insights', active: false },
-          { label: 'Market', icon: 'shopping_cart', active: false },
-          { label: 'Profile', icon: 'person', active: false },
-        ].map((item) => (
-          <div key={item.label} className={`bottom-nav__link${item.active ? ' active' : ''}`}>
-            <span className="material-symbols-outlined">{item.icon}</span>
-            <span>{item.label}</span>
-          </div>
-        ))}
-      </nav>
     </main>
   );
 }

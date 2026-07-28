@@ -115,20 +115,6 @@ export default function EliteArenaPage() {
           </div>
         </div>
       </footer>
-
-      <nav className="bottom-nav">
-        {[
-          { label: 'Home', icon: 'dashboard', active: false },
-          { label: 'Lobbies', icon: 'sports_soccer', active: true },
-          { label: 'Stats', icon: 'insights', active: false },
-          { label: 'Profile', icon: 'person', active: false },
-        ].map((item) => (
-          <div key={item.label} className={`bottom-nav__link${item.active ? ' active' : ''}`}>
-            <span className="material-symbols-outlined">{item.icon}</span>
-            <span>{item.label}</span>
-          </div>
-        ))}
-      </nav>
     </main>
   );
 }
