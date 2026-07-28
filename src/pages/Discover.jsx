@@ -1,8 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { COLLECTIONS } from '../data';
 import FootballUniverse from '../components/FootballUniverse';
-import DiscoverySection from '../components/discovery/DiscoverySection';
 import QuickActions from '../components/QuickActions';
 import CategorySection from '../components/CategorySection';
 import LiveParties from '../components/LiveParties';
@@ -11,8 +8,6 @@ import FeaturedCollections from '../components/FeaturedCollections';
 import TopPlayers from '../components/TopPlayers';
 
 export default function Discover() {
-  const location = useLocation();
-
   return (
     <main>
       <FootballUniverse onOpenQuiz={() => {}} />
