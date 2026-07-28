@@ -77,7 +77,7 @@ export default function DashboardPage() {
         <div className="card-panel-body" style={{ display: 'grid', gap: 'var(--stack-md)' }}>
           <div className="panel-card" style={{ display: 'flex', alignItems: 'center', gap: 'var(--stack-md)' }}>
             <div style={{ width: 64, height: 48, background: 'var(--surface-container-highest)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-              <div style={{ width: '100%', height: '100%', backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNzXcqP076E8bbHsnJnDoOfMRwComnBnvdWPzzRT2QxuI72eeRC-k4vbdYDyvSwQTme-W0ByuFGbvswlETRgU13IvMH0drI6c_HnRCabJmWiLMFqqTgHyY5yTn9KdGdsNktsVTK8FfA8pHCoydy0egBqnCGtenoFREBsXuD996v2eA4AfsQ4V-IRjCAoO0shXHDcts45ogg86rt20o3vF9sNT_Lxw4VcrWCT9e-Bmj3Ddxymk3kGGW2kszII_T5e80iF7iuQXB7yo')", filter: 'grayscale(100%)', transition: 'filter 0.5s ease' }} />
+              <div style={{ width: '100%', height: '100%', backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNzXcqP076E8bbHsnJnDoOfMRwComnBnvdWPzzRT2QxuI72eeRC-k4vbdYDyvSwQTme-W0ByuFGbvswlETRgU13IvMH0drI6c_HnRCabJmWiLMFqqTgHyY5yTn9KdGdsNktsVTK8FfA8pHCoydy0egBqnCGtenoFREBsXuD996v2eA4AfsQ4V-IRjCAoO0shXHDcts45ogg86rt20o3vF9sNT_Lxw4VcrWCT9e-Bmj3Ddxymk3kGGW2kszII_T5e80iF7iuQXB7yo')", transition: 'filter 0.5s ease' }} />
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
@@ -94,7 +94,7 @@ export default function DashboardPage() {
           </div>
           <div className="panel-card" style={{ display: 'flex', alignItems: 'center', gap: 'var(--stack-md)', opacity: 0.6 }}>
             <div style={{ width: 64, height: 48, background: 'var(--surface-container-highest)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-              <div style={{ width: '100%', height: '100%', backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-xZBg2dznBxmZS7l5c1ji0_6Sb_smcuGwVYBcnOfABJJoz5mL3hlJe6WEJjwx7mBh9BqUK8X5Z2eomjNHi5T0pXUoFmIPwkEFQYn5eSq0CYTOjhau8AVGVI6i6a_S4omgPh_NgqZmG4nH8SCS0ljfJBrYjEz_HG5JijmnSKxPykXH_WfaHcV8DfaxLbBto2yUhSeKmCEU')", filter: 'grayscale(100%)' }} />
+              <div style={{ width: '100%', height: '100%', backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-xZBg2dznBxmZS7l5c1ji0_6Sb_smcuGwVYBcnOfABJJoz5mL3hlJe6WEJjwx7mBh9BqUK8X5Z2eomjNHi5T0pXUoFmIPwkEFQYn5eSq0CYTOjhau8AVGVI6i6a_S4omgPh_NgqZmG4nH8SCS0ljfJBrYjEz_HG5JijmnSKxPykXH_WfaHcV8DfaxLbBto2yUhSeKmCEU')" }} />
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>

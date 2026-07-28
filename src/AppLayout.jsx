@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 
 const navItems = [
@@ -15,8 +16,41 @@ const sidebarItems = [
 ];
 
 export default function AppLayout() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.localStorage.getItem('masss67-theme') || 'dark';
+    }
+    return 'dark';
+  });
+
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.localStorage.getItem('masss67-sidebar') === 'collapsed';
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle('theme-light', theme === 'light');
+    root.classList.toggle('theme-dark', theme === 'dark');
+    window.localStorage.setItem('masss67-theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    window.localStorage.setItem('masss67-sidebar', sidebarCollapsed ? 'collapsed' : 'expanded');
+  }, [sidebarCollapsed]);
+
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
+  };
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed((current) => !current);
+  };
+
   return (
-    <div className="page-shell">
+    <div className={`page-shell${sidebarCollapsed ? ' sidebar-collapsed' : ''}`}>
       <header className="top-nav">
         <div className="top-nav__brand">MASSS67</div>
         <nav className="top-nav__links">
@@ -35,14 +69,29 @@ export default function AppLayout() {
             <span className="material-symbols-outlined">search</span>
             <input placeholder="Search systems..." type="text" />
           </div>
+          <button className="top-nav__button top-nav__button--toggle" onClick={toggleTheme} type="button" aria-label="Toggle light mode">
+            <span className="material-symbols-outlined">{theme === 'dark' ? 'light_mode' : 'dark_mode'}</span>
+          </button>
           <button className="top-nav__button">Go Pro</button>
         </div>
       </header>
 
       <aside className="sidebar">
         <div className="sidebar__panel">
-          <div className="sidebar__title">Elite Player</div>
-          <div className="sidebar__subtitle">Rank: Grandmaster</div>
+          <div>
+            <div className="sidebar__title">Elite Player</div>
+            <div className="sidebar__subtitle">Rank: Grandmaster</div>
+          </div>
+          <button
+            type="button"
+            className="sidebar__toggle"
+            onClick={toggleSidebar}
+            aria-label={sidebarCollapsed ? 'Expand navigation panel' : 'Collapse navigation panel'}
+          >
+            <span className="material-symbols-outlined">
+              {sidebarCollapsed ? 'chevron_right' : 'chevron_left'}
+            </span>
+          </button>
         </div>
         <nav className="sidebar__nav">
           {sidebarItems.map((item) => (

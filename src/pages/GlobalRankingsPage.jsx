@@ -68,7 +68,7 @@ export default function GlobalRankingsPage() {
               <span className="material-symbols-outlined" style={{ position: 'absolute', top: 16, right: 16, fontSize: 32, color: 'var(--primary-container)', fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
             )}
             <div className="podium-card__avatar" style={{ marginBottom: 16, position: 'relative' }}>
-              <img src={player.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%)' }} />
+              <img src={player.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', bottom: -8, left: '50%', transform: 'translateX(-50%)', background: player.rank === 1 ? 'var(--primary-container)' : player.rank === 2 ? '#3b3b3b' : 'rgb(255,191,0)', color: '#fff', padding: '6px 12px', borderRadius: '9999px', fontSize: 10, fontWeight: 800 }}>{`#${player.rank}`}</div>
             </div>
             <h3 className="headline-md" style={{ marginBottom: 12 }}>{player.name}</h3>
@@ -99,7 +99,7 @@ export default function GlobalRankingsPage() {
               <div style={{ gridColumn: 'span 1', color: 'var(--text-tertiary)' }}>{row.rank}</div>
               <div style={{ gridColumn: 'span 5', display: 'flex', alignItems: 'center', gap: 'var(--stack-md)' }}>
                 <div className="leaderboard-row__avatar">
-                  <img src={row.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%)' }} />
+                  <img src={row.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <span style={{ fontWeight: 700, textTransform: 'uppercase' }}>{row.name}</span>
                 {row.status && <span className="leaderboard-row__badge">{row.status}</span>}
