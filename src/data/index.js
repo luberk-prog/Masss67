@@ -102,15 +102,15 @@ export const COLLECTIONS = [
 ];
 
 export const CATEGORIES = [
-  { id: 'football', title: 'Football', icon: '⚽', color: 'var(--accent)' },
-  { id: 'science', title: 'Science', icon: '🔬', color: '#22C55E' },
-  { id: 'history', title: 'History', icon: '🏛️', color: '#F59E0B' },
-  { id: 'politics', title: 'Politics', icon: '🏛️', color: '#8B5CF6' },
-  { id: 'movies', title: 'Movies', icon: '🎬', color: '#EF4444' },
-  { id: 'music', title: 'Music', icon: '🎵', color: '#14B8A6' },
-  { id: 'gaming', title: 'Gaming', icon: '🎮', color: '#F472B6' },
-  { id: 'technology', title: 'Technology', icon: '💻', color: '#3B82F6' },
-  { id: 'geography', title: 'Geography', icon: '🌍', color: '#10B981' },
+  { id: 'football', title: 'Football', color: 'var(--accent)' },
+  { id: 'science', title: 'Science', color: '#22C55E' },
+  { id: 'history', title: 'History', color: '#F59E0B' },
+  { id: 'politics', title: 'Politics', color: '#8B5CF6' },
+  { id: 'movies', title: 'Movies', color: '#EF4444' },
+  { id: 'music', title: 'Music', color: '#14B8A6' },
+  { id: 'gaming', title: 'Gaming', color: '#F472B6' },
+  { id: 'technology', title: 'Technology', color: '#3B82F6' },
+  { id: 'geography', title: 'Geography', color: '#10B981' },
 ];
 
 export const LEADERBOARD = [
