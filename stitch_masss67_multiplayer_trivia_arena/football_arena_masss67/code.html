@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MASSS67 - Football Collections</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Load Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-high": "#2a2a2a",
+                "outline-variant": "#5d3f3b",
+                "primary-container": "#ff5545",
+                "outline": "#ad8883",
+                "surface-dim": "#131313",
+                "on-secondary-fixed-variant": "#464747",
+                "surface-tint": "#ffb4aa",
+                "surface-container": "#201f1f",
+                "primary": "#ffb4aa",
+                "inverse-primary": "#c0000a",
+                "inverse-surface": "#e5e2e1",
+                "on-secondary-container": "#b8b8b8",
+                "on-error": "#690005",
+                "on-primary-fixed-variant": "#930005",
+                "secondary-fixed": "#e3e2e2",
+                "tertiary-container": "#909191",
+                "on-surface": "#e5e2e1",
+                "tertiary-fixed": "#e2e2e2",
+                "on-tertiary-fixed-variant": "#454747",
+                "error-container": "#93000a",
+                "primary-fixed": "#ffdad5",
+                "primary-fixed-dim": "#ffb4aa",
+                "inverse-on-surface": "#313030",
+                "on-primary-container": "#5c0002",
+                "on-tertiary-fixed": "#1a1c1c",
+                "on-secondary": "#2f3131",
+                "surface": "#131313",
+                "surface-variant": "#353534",
+                "background": "#131313",
+                "surface-container-low": "#1c1b1b",
+                "surface-container-highest": "#353534",
+                "tertiary": "#c6c6c7",
+                "on-secondary-fixed": "#1a1c1c",
+                "on-error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "error": "#ffb4ab",
+                "secondary-container": "#484949",
+                "on-background": "#e5e2e1",
+                "on-tertiary": "#2f3131",
+                "on-tertiary-container": "#282a2a",
+                "surface-bright": "#3a3939",
+                "on-primary": "#690003",
+                "on-primary-fixed": "#410001",
+                "surface-container-lowest": "#0e0e0e",
+                "secondary": "#c7c6c6",
+                "on-surface-variant": "#e7bdb7",
+                "secondary-fixed-dim": "#c7c6c6"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "48px",
+                "container-max": "1280px",
+                "base": "4px",
+                "stack-sm": "8px",
+                "stack-lg": "32px",
+                "margin-mobile": "16px",
+                "stack-md": "16px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "display-lg": ["Montserrat"],
+                "headline-md": ["Montserrat"],
+                "display-xl": ["Montserrat"],
+                "mono-data": ["Inter"],
+                "display-lg-mobile": ["Montserrat"],
+                "label-caps": ["Inter"],
+                "body-lg": ["Inter"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "display-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                "body-md": ["15px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>body {
+    background-color: #050505;
+    color: #e5e2e1;
+    -webkit-font-smoothing: antialiased
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.glass-overlay {
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0) 0%, rgba(5, 5, 5, 0.9) 100%)
+    }
+.custom-border {
+    border: 1px solid rgba(255, 255, 255, 0.08)
+    }
+.custom-border:hover {
+    border-color: rgba(255, 255, 255, 0.2)
+    }
+.performance-accent {
+    border-left: 2px solid #ff5545
+    }
+/* Tactical Grain Overlay */
+.grain::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 50;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCMWfN92fS6S5_4hT6dwxYy89uZ_9t9RsovpKKnJUFLYH20XWjPLCJWiHE5T9oNt_jvFOEqHiwN-61g1n3SCsvHSuIiJqD8Oc4SRMiWj0anJmy3vwv5OkgONWac-QYVOm-YJoMrlL5YMpnTmY8oe9qLg9YV5pbhDJdsNShWvVBXItARRDV1xCnpJVR2aet7ZDYqFJzJH8fIY3kyXnq3ei8U_fsqsbqsCvVltaL_mZq3ObwhHMZLvBI9EeQMiQpG2zR1OuxeIxrSRb8)
+    }</style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden grain">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary font-body-md text-body-md docked full-width top-0 border-b border-outline-variant flat no shadows flex justify-between items-center px-margin-desktop w-full h-16 fixed z-50">
+<div class="font-display-lg text-display-lg font-extrabold text-on-surface tracking-tighter">MASSS67</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Arena</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Collections</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Rankings</a>
+</nav>
+<div class="flex items-center gap-stack-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-on-surface focus:ring-0 text-sm px-10 py-1 w-64 transition-all" placeholder="Search competitions..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-stack-md py-2 uppercase tracking-widest hover:brightness-110 transition-all">Go Pro</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden md:flex flex-col h-screen fixed left-0 top-0 z-40 bg-surface-container dark:bg-surface-container font-label-caps text-label-caps docked left-0 h-full w-64 border-r border-outline-variant flat no shadows">
+<div class="p-stack-lg pt-24">
+<div class="mb-stack-lg">
+<div class="text-on-surface font-display-lg text-display-lg font-bold">Elite Player</div>
+<div class="text-on-surface-variant opacity-70">Rank: Grandmaster</div>
+</div>
+<nav class="space-y-base">
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span>My Performance</span>
+</a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-primary border-l-2 border-primary bg-primary-container/10" href="#">
+<span class="material-symbols-outlined">sports_soccer</span>
+<span>Lobbies</span>
+</a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Market</span>
+</a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Account</span>
+</a>
+</nav>
+<div class="mt-auto pt-stack-lg">
+<button class="w-full bg-on-surface text-surface py-stack-md font-bold text-center tracking-tighter hover:bg-primary transition-colors">Join Tournament</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:pl-64 pt-16 min-h-screen">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h1 class="font-display-xl text-display-xl text-on-surface mb-stack-sm">FOOTBALL COLLECTIONS</h1>
+<p class="text-on-surface-variant max-w-2xl opacity-80">High-fidelity tactical challenges for the elite strategist. Compete in global lobbies and prove your clinical dominance.</p>
+</section>
+<!-- Filter Bar -->
+<section class="mb-stack-lg border-b border-outline-variant pb-base">
+<div class="flex gap-stack-lg overflow-x-auto no-scrollbar py-2">
+<button class="font-label-caps text-label-caps text-primary border-b border-primary pb-2 whitespace-nowrap">All</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Premier League</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">World Cup</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Champions League</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">La Liga</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Serie A</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">National Teams</button>
+</div>
+</section>
+<!-- Featured Tournament Banner -->
+<section class="mb-stack-lg relative h-[400px] w-full overflow-hidden group">
+<div class="absolute inset-0 grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out bg-cover bg-center" data-alt="A cinematic, high-contrast photograph of a professional football player striking a ball in a rain-slicked stadium at night. Intense spotlights create long shadows and highlight the moisture in the air. The scene is framed with a professional sports broadcast aesthetic, using a clinical, desaturated color palette with deep blacks and sharp white highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUw2Ho5umgqGtOl-VdiCqCO6Fw6_evG4ULATI_9rO52N4BTBqQ6kXuLyZ0kMiJAenp4ymy0IGRleUlcRuKQ1qXWxyDFUOjzjxYvPj_2Nr2m-qRqS5Xt5Owc6Zl7eGFhEW8nbIjigP38wOR4kE5i6apGtzFY77CE6Jrel4IsncRvPuX_iD2ffs83hfB9FCwqWmQEz9-7wseR_-9ltw9d5un4zXhLCqWCIzKNpof8zpBqV4rMf3vBe6S-4uuad6ARgHeiBQjnThwFiQ')"></div>
+<div class="absolute inset-0 glass-overlay flex flex-col justify-end p-stack-lg">
+<div class="performance-accent pl-stack-md">
+<div class="bg-primary-container text-on-primary-container px-2 py-0.5 inline-block font-label-caps text-[10px] mb-2">LIVE TOURNAMENT</div>
+<h2 class="font-display-xl text-display-xl text-on-surface leading-none mb-2">THE CHAMPIONS CHALLENGE</h2>
+<div class="flex items-center gap-stack-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PRIZE POOL</span>
+<span class="font-mono-data text-2xl text-primary">$15,000.00</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PLAYERS</span>
+<span class="font-mono-data text-2xl text-on-surface">1,248 / 2,000</span>
+</div>
+<button class="ml-auto bg-on-surface text-surface font-bold px-stack-lg py-4 uppercase tracking-tighter hover:bg-primary transition-colors">ENTER ARENA</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiz Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="custom-border bg-surface-container overflow-hidden group flex flex-col h-full">
+<div class="h-48 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A minimalist high-resolution desaturated close-up of a premium leather football with intricate stitching against a dark, moody background. Professional studio lighting emphasizes the texture and form of the ball, creating a high-end sports equipment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKsT6mmG4PzMv9YQAiVBHNB12dKrOHSc3v06HV7SW-8ScEouW2n_FqNFwDL8jvCAE0Jh3MC64eqVEsQDbAcI0CMxmJNeCWQcqyiW9o0mQW_yg60TBUWOssuysHCqv-sSAzmkvjyCzqWy3klMHlbUHaxkcDU6DQEGtBW4h4FAFnE1iXYHAzzjsoC0V5dyRAFK_iav3s5yfsOmzViVCPsJxlOUrQF0W7-2IfcbAtCqQl5AqIzEP6MAHmQD33ctIGjedEyFASmjEdAro"/>
+<div class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md px-2 py-1 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-[10px] text-on-surface">82 ACTIVE</span>
+</div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow bg-[#151515]">
+<div class="mb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">PREMIER LEAGUE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Tactical Masters: 2024 Season</h3>
+</div>
+<div class="mt-auto flex justify-between items-center pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">groups</span>
+<span class="font-mono-data text-xs text-on-surface-variant">12.4k Plays</span>
+</div>
+<button class="bg-transparent border border-on-surface/20 text-on-surface font-label-caps text-[11px] px-4 py-2 hover:bg-on-surface hover:text-surface transition-colors">JOIN MATCH</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="custom-border bg-surface-container overflow-hidden group flex flex-col h-full">
+<div class="h-48 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A wide-angle, atmospheric shot of an empty modern football stadium at dusk. The structural steel architecture is silhouetted against a deep indigo sky. The lighting is clinical and sharp, reflecting off the glass panels of the executive suites, creating a premium sports facility atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALhWqJuDjMeh4xWc5xieB0qdoHpIN-TUrzXeLefzYVzJIVfH-Ffx6sxpWaTYHMSiWyhmyUFlFOsdevrmCBwYQhUdP3rz3RKrqkbFVt-TJX0JE0rsv8wCohTTHwSEJXVvPpDPBxdJgItU4EdMHgit8cXbZZVeb_MHKzkOH4TRR1YeopVfCiwYwrjwUjIwV5QRtZqZl15vRcOqHMjusi4CHhy0gzZ0xZS_dnMON_nsdlJ_P12YTqCHOpcSAaNzpy_lmlEIkp5mtrePo"/>
+<div class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md px-2 py-1">
+<span class="font-label-caps text-[10px] text-on-surface">FEATURED</span>
+</div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow bg-[#151515]">
+<div class="mb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">WORLD CUP</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Legends of the FIFA Finals</h3>
+</div>
+<div class="mt-auto flex justify-between items-center pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">groups</span>
+<span class="font-mono-data text-xs text-on-surface-variant">8.9k Plays</span>
+</div>
+<button class="bg-transparent border border-on-surface/20 text-on-surface font-label-caps text-[11px] px-4 py-2 hover:bg-on-surface hover:text-surface transition-colors">JOIN MATCH</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="custom-border bg-surface-container overflow-hidden group flex flex-col h-full">
+<div class="h-48 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A detailed, macro photograph of high-tech football cleats with metallic studs on artificial turf. The focus is sharp on the texture of the performance material and the individual blades of grass, with a shallow depth of field. The lighting is bright and industrial, emphasizing technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClDvsx_EOPZ-Z6mCYnCzuumDVIdmutCg7CTYHnIw6thp_wBvkT7iYPt9u1732LqYZ74wXtUjneibJLKYzEasbFQh99X96C_CUTxHGXg_80z2I3G80fJlAqyfVYCAqNBjFpgzyepzTO8lo12q8kQogYxLIPr4Mv-FwATiSGrxJnvhkSQoVKfZFYyFHlJJlEQ1CfALyb2wkkTnUzTFieYiSho8-qCMc3GsG9ZeKY851Z46O80STq331GaPVLKqBi7syTNKztZeVS6Io"/>
+</div>
+<div class="p-stack-md flex flex-col flex-grow bg-[#151515]">
+<div class="mb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">ULTIMATE SQUAD</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Transfer Market Intel: Europe</h3>
+</div>
+<div class="mt-auto flex justify-between items-center pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">groups</span>
+<span class="font-mono-data text-xs text-on-surface-variant">25.1k Plays</span>
+</div>
+<button class="bg-transparent border border-on-surface/20 text-on-surface font-label-caps text-[11px] px-4 py-2 hover:bg-on-surface hover:text-surface transition-colors">JOIN MATCH</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="custom-border bg-surface-container overflow-hidden group flex flex-col h-full">
+<div class="h-48 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A stylized digital rendering of a football manager's whiteboard with complex tactical diagrams, arrows, and player markers. The image uses a high-performance minimalist aesthetic with thin white lines and a few red dots for emphasis on a deep black background, suggesting professional game strategy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp9OdBUusjzm_b-LyBienKAf-xkyopV6vu_4hV6nuFFox4aav1EtrPetge2fOr0MCkduSu_iALACPHNjLqBfWSjiieR0L0Z0v38sRQVdFVCSZoZriNj45Z5Ey2gbRy4MEDLj4lfnEz_o7MwKcVmbDHk8CHuFa94Snmwqd2GUaTn9lZKPDGFal0p-FemGVtNrkeV3MBOynXb2qzokLw9Lx_erQo776qwETeHqYzDRi2Q7raZyMUIfM2Je0l8HsHxiB_0audkSbgtGQ"/>
+</div>
+<div class="p-stack-md flex flex-col flex-grow bg-[#151515]">
+<div class="mb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">COACHING ZONE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">High-Press Defensive Strategy</h3>
+</div>
+<div class="mt-auto flex justify-between items-center pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">groups</span>
+<span class="font-mono-data text-xs text-on-surface-variant">5.2k Plays</span>
+</div>
+<button class="bg-transparent border border-on-surface/20 text-on-surface font-label-caps text-[11px] px-4 py-2 hover:bg-on-surface hover:text-surface transition-colors">JOIN MATCH</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="custom-border bg-surface-container overflow-hidden group flex flex-col h-full">
+<div class="h-48 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A high-contrast monochromatic close-up of a player's hand adjusting a captain's armband. The lighting is dramatic and moody, emphasizing the responsibility and prestige of leadership in professional sports. The style is clinical, clean, and highly focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa3Zy4kjIzXcaIc3SKAmktZscmKJSgPNtn6S4VxXtI0U3dLHWVUspHgj1t18SQSjqC2FQhs0Ytr7O1Um9abrPsb94U2-DbtADONASt0Aaa3Aelsg4HOPJGwBs4j03AmrJxvL-XdAYyJWb0z_rG08F_tDzO3AZMJjK_sNWC_gatWtu7vhdlb-nhzL5qyH829nS5LcwTjwYbes7TnF3hMMu-7486C2NwzdrygGtdYz2cqjqIJ-fbjebyns-dG8GBZ2TPCrHFT9bNpw4"/>
+</div>
+<div class="p-stack-md flex flex-col flex-grow bg-[#151515]">
+<div class="mb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">LEADERSHIP</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Captain's Armband: Iconic Leaders</h3>
+</div>
+<div class="mt-auto flex justify-between items-center pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">groups</span>
+<span class="font-mono-data text-xs text-on-surface-variant">14.7k Plays</span>
+</div>
+<button class="bg-transparent border border-on-surface/20 text-on-surface font-label-caps text-[11px] px-4 py-2 hover:bg-on-surface hover:text-surface transition-colors">JOIN MATCH</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="custom-border bg-surface-container overflow-hidden group flex flex-col h-full">
+<div class="h-48 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A sleek, futuristic digital representation of player performance data. Abstract white glowing lines and data points float in a dark 3D space, resembling a high-end fintech or sports analytics dashboard. The mood is highly technical, precise, and advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1BAGQ9ZhxHCcEhR0ubXjaZJ2fLKfQEckL2Hu_0Hkxf5mFpMQY8OlfLGhyQqeDo9GFvo6n_H1Zfi7GAJ5cPZEQd12MWqc3kSRBIYCBFCBw8NsrQpQ7UzAE-NZu2lD5-xCT1TN8mIv9iJHcPOBhwHsDR6xWHsG_3q2w5Z1S9MuELBiihUKhkKiVmAbj96hFZZokZN1jI1gKA-N890qk0Ut4rGjuKdWsWgeaw6JZ_xDq8PJmZD40sC8MfsoK19anZ3oE9kjTIitZxU4"/>
+</div>
+<div class="p-stack-md flex flex-col flex-grow bg-[#151515]">
+<div class="mb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">DATA ANALYTICS</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Statistical Prodigies: Next-Gen</h3>
+</div>
+<div class="mt-auto flex justify-between items-center pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">groups</span>
+<span class="font-mono-data text-xs text-on-surface-variant">3.1k Plays</span>
+</div>
+<button class="bg-transparent border border-on-surface/20 text-on-surface font-label-caps text-[11px] px-4 py-2 hover:bg-on-surface hover:text-surface transition-colors">JOIN MATCH</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="md:pl-64 bg-surface-container-lowest dark:bg-surface-container-lowest text-on-surface-variant dark:text-on-surface-variant font-mono-data text-mono-data full-width border-t border-outline-variant flat no shadows flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-lg w-full mt-stack-lg">
+<div class="mb-4 md:mb-0">
+<span class="font-display-lg text-display-lg font-extrabold tracking-tighter text-on-surface mr-4">MASSS67</span>
+<span>© 2024 MASSS67 PERFORMANCE SYSTEMS</span>
+</div>
+<div class="flex gap-stack-lg text-xs">
+<a class="hover:text-primary underline transition-all cursor-default" href="#">Privacy Policy</a>
+<a class="hover:text-primary underline transition-all cursor-default" href="#">Terms of Service</a>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+<span>Server Status: Operational</span>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation Shell -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container border-t border-outline-variant flex justify-around items-center z-50 px-margin-mobile">
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined">sports_soccer</span>
+<span class="text-[10px] font-label-caps">Lobbies</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-label-caps">Stats</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-caps">Profile</span>
+</a>
+</div>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.98)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Filter selection logic
+        const filterButtons = document.querySelectorAll('section div.flex button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('text-primary', 'border-b', 'border-primary');
+                    b.classList.add('text-on-surface-variant');
+                });
+                btn.classList.add('text-primary', 'border-b', 'border-primary');
+                btn.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

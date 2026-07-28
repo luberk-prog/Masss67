@@ -1,7 +1,4 @@
 import React from 'react';
-import Badge from './ui/Badge';
-import Card from './ui/Card';
-
 
 const TOP_THREE = [
   {
@@ -42,73 +39,87 @@ const LEADERBOARD_LIST = [
 
 export default function TopPlayers() {
   return (
-    <section className="section">
-      <div className="content">
+    <section style={{ padding: '0 32px' }}>
+      <div style={{
+        maxWidth: '1520px',
+        margin: '0 auto',
+        padding: '32px 0',
+      }}>
         <div style={{ marginBottom: '24px' }}>
-          <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          <div style={{ color: 'var(--text-3)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: 'var(--f-num)' }}>
             GLOBAL RANKINGS
           </div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#FFF', marginTop: '2px' }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text)', marginTop: '4px', fontFamily: 'var(--f-head)' }}>
             Season 4 Leaderboard
           </h2>
         </div>
 
-        {/* Podium Top 3 */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '20px',
+          gap: '16px',
           marginBottom: '24px'
         }}>
           {TOP_THREE.map((player) => (
             <div
               key={player.rank}
-              className="game-card"
               style={{
                 padding: '24px',
                 textAlign: 'center',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                position: 'relative'
+                position: 'relative',
+                background: 'var(--surface-card)',
+                border: '1px solid var(--border)',
+                borderRadius: '16px',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div style={{
+              <span style={{
                 position: 'absolute',
                 top: '12px',
                 right: '12px',
                 background: 'rgba(255, 255, 255, 0.06)',
-                color: 'var(--text-main)',
-                fontFamily: 'var(--font-heading)',
+                color: 'var(--text-2)',
+                fontFamily: 'var(--f-num)',
                 fontWeight: 800,
-                padding: '2px 10px',
-                borderRadius: 'var(--r-pill)',
-                fontSize: '0.75rem',
+                padding: '4px 12px',
+                borderRadius: '999px',
+                fontSize: '12px',
                 border: '1px solid var(--border)'
               }}>
                 RANK #{player.rank}
-              </div>
+              </span>
 
               <div style={{
                 width: '64px',
                 height: '64px',
                 borderRadius: '50%',
-                background: 'var(--surface-hover)',
+                background: 'var(--bg-2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 800,
                 fontSize: '1.2rem',
-                color: '#FFF',
-                border: '1px solid var(--border-bright)',
+                color: 'var(--text)',
+                border: '1px solid var(--border)',
                 marginTop: '8px',
-                marginBottom: '12px'
+                marginBottom: '12px',
               }}>
                 {player.avatar}
               </div>
 
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#FFF' }}>{player.name}</h3>
-              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.06em', marginTop: '2px' }}>
+              <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text)', fontFamily: 'var(--f-head)' }}>{player.name}</h3>
+              <span style={{ fontSize: '12px', color: 'var(--text-3)', fontWeight: 600, fontFamily: 'var(--f-num)', marginTop: '2px' }}>
                 {player.title}
               </span>
 
@@ -116,32 +127,36 @@ export default function TopPlayers() {
                 width: '100%',
                 background: 'rgba(255, 255, 255, 0.03)',
                 border: '1px solid var(--border)',
-                borderRadius: 'var(--r-sm)',
+                borderRadius: '12px',
                 padding: '10px',
                 marginTop: '16px',
                 display: 'flex',
                 justifyContent: 'space-around',
-                fontFamily: 'var(--font-num)'
+                fontFamily: 'var(--f-num)'
               }}>
                 <div>
-                  <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>RATING</div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#FFF' }}>{player.elo}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-3)' }}>RATING</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text)' }}>{player.elo}</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>WIN RATE</div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#4ADE80' }}>{player.winRate}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-3)' }}>WIN RATE</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#4ADE80' }}>{player.winRate}</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>POINTS</div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--warning)' }}>{player.trophies}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-3)' }}>POINTS</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#F59E0B' }}>{player.trophies}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Leaderboard Table List */}
-        <Card style={{ padding: '12px 20px' }}>
+        <div style={{
+          background: 'var(--surface-card)',
+          border: '1px solid var(--border)',
+          borderRadius: '16px',
+          overflow: 'hidden',
+        }}>
           {LEADERBOARD_LIST.map((p) => (
             <div
               key={p.rank}
@@ -149,25 +164,46 @@ export default function TopPlayers() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '10px 12px',
-                borderBottom: '1px solid var(--border)'
+                padding: '12px 16px',
+                borderBottom: '1px solid var(--border)',
+                transition: 'background 0.15s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = 'var(--bg-2)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'transparent';
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <span style={{ fontFamily: 'var(--font-num)', fontWeight: 700, color: 'var(--text-muted)', width: '28px', fontSize: '0.85rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <span style={{ fontFamily: 'var(--f-num)', fontWeight: 700, color: 'var(--text-3)', width: '24px', fontSize: '13px' }}>
                   #{p.rank}
                 </span>
-                <span style={{ fontWeight: 700, color: '#FFF', fontSize: '0.9rem' }}>{p.name}</span>
-                <Badge variant="ranked" size="medium">{p.badge}</Badge>
+                <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: '14px' }}>{p.name}</span>
+                <span style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '4px 10px',
+                  background: 'rgba(250, 204, 16, 0.15)',
+                  border: '1px solid rgba(250, 204, 16, 0.3)',
+                  borderRadius: '999px',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  color: '#F59E0B',
+                  fontFamily: 'var(--f-num)',
+                }}>
+                  {p.badge}
+                </span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', fontFamily: 'var(--font-num)', fontSize: '0.85rem' }}>
-                <span style={{ color: '#FFF', fontWeight: 700 }}>{p.elo}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '24px', fontFamily: 'var(--f-num)', fontSize: '13px' }}>
+                <span style={{ color: 'var(--text)', fontWeight: 600 }}>{p.elo}</span>
                 <span style={{ color: '#4ADE80', fontWeight: 600 }}>{p.winRate}</span>
               </div>
             </div>
           ))}
-        </Card>
+        </div>
       </div>
     </section>
   );

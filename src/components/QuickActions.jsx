@@ -15,10 +15,11 @@ export default function QuickActions({ onOpenQuiz, onOpenParty }) {
       <div style={{
         maxWidth: '1520px',
         margin: '0 auto',
-        padding: '20px 0',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
+        padding: '32px 0',
+        display: 'flex',
+        justifyContent: 'center',
         gap: '12px',
+        flexWrap: 'wrap',
       }}>
         {ACTIONS.map(action => {
           const Icon = action.icon;
@@ -33,22 +34,23 @@ export default function QuickActions({ onOpenQuiz, onOpenParty }) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
-                padding: '14px 16px',
-                background: 'var(--surface)',
+                padding: '14px 20px',
+                background: 'var(--surface-card)',
                 border: '1px solid var(--border)',
-                borderRadius: '14px',
+                borderRadius: '12px',
                 cursor: 'pointer',
                 transition: 'all 0.18s ease',
                 textAlign: 'left',
+                minWidth: '180px',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'var(--surface-float, #232C40)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)';
+                e.currentTarget.style.background = 'var(--surface-hover)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.25)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'var(--surface)';
+                e.currentTarget.style.background = 'var(--surface-card)';
                 e.currentTarget.style.borderColor = 'var(--border)';
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
@@ -57,19 +59,19 @@ export default function QuickActions({ onOpenQuiz, onOpenParty }) {
               <div style={{
                 width: '36px',
                 height: '36px',
-                borderRadius: '10px',
-                background: 'rgba(94,107,255,0.12)',
+                borderRadius: '8px',
+                background: 'rgba(0,196,204,0.12)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}>
-                <Icon size={17} color="var(--accent)" />
+                <Icon size={16} color="var(--accent)" />
               </div>
               <div>
                 <div style={{
                   fontSize: '13px',
-                  fontWeight: 700,
+                  fontWeight: 600,
                   color: 'var(--text)',
                   fontFamily: 'var(--f-head)',
                   lineHeight: 1.2,

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MASSS67 | The Elite Competitive Arena</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>body {
+    background-color: #050505;
+    color: #e5e2e1;
+    -webkit-font-smoothing: antialiased
+    }
+.matte-surface {
+    background: #0D0D0D;
+    border: 1px solid rgba(255, 255, 255, 0.08)
+    }
+.thin-border {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08)
+    }
+.grain-overlay {
+    position: relative
+    }
+.grain-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDy825IVE0O02h7YxxZ5EUao8rd5wCNdedCMhbBH1hl1SpKz8957S0Faf-D9gsHqV_5aExb-hb_AU9AS82qc_9V9GaULC0PlQl3FbZKz8MoolXVfWxl7vfBT05egSCiB6dPyjw70cyqvC9Vd4oGneRE9NeO2IZD5Vp_x4mUR8VvK8MQmpr_dmsmVq0hEKplSQOgd1LAIHRE6SsesRRmDSWJdvA_qFyFmgeiNkw4ZujbmOt2w4jXPkRXaCZeyXLSFqdUyKfDUztSO4w);
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 10
+    }</style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2a",
+                      "outline-variant": "#5d3f3b",
+                      "primary-container": "#ff5545",
+                      "outline": "#ad8883",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#464747",
+                      "surface-tint": "#ffb4aa",
+                      "surface-container": "#201f1f",
+                      "primary": "#ffb4aa",
+                      "inverse-primary": "#c0000a",
+                      "inverse-surface": "#e5e2e1",
+                      "on-secondary-container": "#b8b8b8",
+                      "on-error": "#690005",
+                      "on-primary-fixed-variant": "#930005",
+                      "secondary-fixed": "#e3e2e2",
+                      "tertiary-container": "#909191",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#ffdad5",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "inverse-on-surface": "#313030",
+                      "on-primary-container": "#5c0002",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "on-secondary": "#2f3131",
+                      "surface": "#131313",
+                      "surface-variant": "#353534",
+                      "background": "#131313",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container-highest": "#353534",
+                      "tertiary": "#c6c6c7",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "error": "#ffb4ab",
+                      "secondary-container": "#484949",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#2f3131",
+                      "on-tertiary-container": "#282a2a",
+                      "surface-bright": "#3a3939",
+                      "on-primary": "#690003",
+                      "on-primary-fixed": "#410001",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary": "#c7c6c6",
+                      "on-surface-variant": "#e7bdb7",
+                      "secondary-fixed-dim": "#c7c6c6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "container-max": "1280px",
+                      "base": "4px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "margin-mobile": "16px",
+                      "stack-md": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Montserrat"],
+                      "headline-md": ["Montserrat"],
+                      "display-xl": ["Montserrat"],
+                      "mono-data": ["Inter"],
+                      "display-lg-mobile": ["Montserrat"],
+                      "label-caps": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                      "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                      "body-md": ["15px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="grain-overlay font-body-md text-body-md">
+<!-- Top Navigation Bar -->
+<nav class="bg-surface text-primary font-body-md text-body-md docked full-width top-0 border-b border-outline-variant flat no shadows flex justify-between items-center px-margin-desktop w-full h-16 z-50">
+<div class="font-display-lg text-display-lg font-extrabold text-on-surface tracking-tighter">MASSS67</div>
+<div class="hidden md:flex gap-stack-lg items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer active:opacity-80" href="#">Arena</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Collections</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Rankings</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="bg-white text-black px-4 py-1 font-bold text-label-caps hover:bg-neutral-200 transition-colors">Go Pro</button>
+<span class="material-symbols-outlined cursor-pointer text-on-surface">search</span>
+</div>
+</nav>
+<!-- Side Navigation (Mobile/Hidden by default) -->
+<aside class="hidden lg:flex flex-col h-screen fixed left-0 top-0 z-40 bg-surface-container text-on-surface-variant font-label-caps text-label-caps border-r border-outline-variant flat no shadows w-64 pt-20">
+<div class="px-stack-lg py-stack-md border-b border-outline-variant mb-stack-md">
+<div class="text-on-surface font-bold">Elite Player</div>
+<div class="text-[10px] opacity-60">Rank: Grandmaster</div>
+</div>
+<div class="space-y-base">
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-primary border-l-2 border-primary bg-primary-container/10">
+<span class="material-symbols-outlined">insights</span> My Performance
+            </a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all">
+<span class="material-symbols-outlined">group</span> Lobbies
+            </a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all">
+<span class="material-symbols-outlined">shopping_cart</span> Market
+            </a>
+<a class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all">
+<span class="material-symbols-outlined">person</span> Account
+            </a>
+</div>
+<div class="mt-auto p-stack-lg">
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-stack-md hover:brightness-110 transition-all">Join Tournament</button>
+</div>
+</aside>
+<main class="lg:ml-64 pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20">
+
+</div>
+<div class="relative z-10 max-w-4xl">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface leading-none mb-stack-md uppercase">
+                    THE ELITE<br/>COMPETITIVE ARENA
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl border-l-2 border-primary-container pl-stack-md">
+                    The definitive destination for high-stakes multiplayer trivia. Outperform. Outthink. Ascend.
+                </p>
+<div class="flex flex-wrap gap-stack-md">
+<button class="bg-white text-black font-label-caps text-label-caps py-4 px-10 hover:bg-neutral-200 transition-all">
+                        Enter the Arena
+                    </button>
+<button class="border border-white/20 text-white font-label-caps text-label-caps py-4 px-10 hover:bg-white/5 transition-all">
+                        Browse Collections
+                    </button>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="border-y border-outline-variant bg-surface-container-lowest py-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase mb-1">Live Competitors</span>
+<span class="font-display-lg text-[32px] text-on-surface tabular-nums">14,282</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase mb-1">Quizzes Completed</span>
+<span class="font-display-lg text-[32px] text-on-surface tabular-nums">1.2M</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase mb-1">Global Lobbies</span>
+<span class="font-display-lg text-[32px] text-on-surface tabular-nums">842</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase mb-1">Prize Pool</span>
+<span class="font-display-lg text-[32px] text-primary tabular-nums">$245,000</span>
+</div>
+</div>
+</section>
+<!-- Featured Collections -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-background">
+<div class="flex justify-between items-end mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase border-l-4 border-primary pl-4">Featured Collections</h2>
+<a class="font-mono-data text-primary hover:underline transition-all" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Football -->
+<div class="matte-surface group overflow-hidden cursor-pointer">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale opacity-80" data-alt="A high-contrast, desaturated monochromatic photograph of a crowded football stadium at night under dramatic spotlighting. The image uses deep shadows and sharp white highlights to create a premium, intense atmosphere consistent with professional sports branding. The style is clinical and high-fidelity with minimal grain." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMvndj74mZ2wD9_CB36NyUN8SD_3QQMNsiyYWjbxIgk_YCWyLSX2KMRSFBoVIhn_9MNPLqFmJesbv5dgAZdUm4kVD_th3MYgAA3A-vD8nDrQHJRZcCdjreOYsb9Z2KUZM1oC3F_Cw6kuyKTscsPwISIUjByCVR3nruwyGdKXpZR3Yh7Mts1pqnQJLRX1kUiHr9gjhqQ-I27evBZTZGq1B2LbcAk0SHLHcmqQHE7nDfUExMwDTI7OpAKsLEPg5MvATNBGwMyqlww38')"></div>
+<div class="absolute top-4 left-4 bg-black/80 px-3 py-1 text-[10px] font-bold tracking-widest text-primary border border-primary/20">PREMIUM</div>
+</div>
+<div class="p-stack-md border-t border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">FOOTBALL</h3>
+<p class="text-on-surface-variant text-sm opacity-70">Tactical knowledge and historical mastery of the world's game.</p>
+<div class="mt-4 flex items-center gap-2 font-mono-data text-[12px] text-primary">
+<span>LEVEL 4 CLEARANCE</span>
+<span class="material-symbols-outlined text-[14px]">lock_open</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Science -->
+<div class="matte-surface group overflow-hidden cursor-pointer">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale opacity-80" data-alt="A macro monochromatic photograph of complex laboratory equipment, focusing on sharp glass structures and fluid textures. The lighting is clinical and cold, using high-contrast blacks and brilliant whites to evoke a sense of high-end scientific precision. The overall aesthetic is minimalist and sophisticated." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBg96dnwwKm9so2YYno2z7kZiGKo8YFVFufmhR0kWHr5XSU3xJqKKM0v8CqW-qI1orgtaPKyh__haSUJip91-heIqa0cQwyJJFM_6Qi-Jw2w2OdRfv5vrN6r0YsKEbLXmz30ogcbE8lb25EFZlz5qDaccwqmNmY8lOx-KX2XLTYwx7kXiUMThu2py8vK22HQxQB-evBhq7tcv9I5VygMYTN4La4zhUUuUN2gjLiYZ5kh0pAk2FYIoK6ob6v7_CZYvBZDxyYCHNMWZs')"></div>
+<div class="absolute top-4 left-4 bg-black/80 px-3 py-1 text-[10px] font-bold tracking-widest text-white border border-white/20">CORE</div>
+</div>
+<div class="p-stack-md border-t border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">SCIENCE</h3>
+<p class="text-on-surface-variant text-sm opacity-70">From quantum mechanics to molecular biology. The ultimate trial.</p>
+<div class="mt-4 flex items-center gap-2 font-mono-data text-[12px] text-on-surface-variant">
+<span>OPEN ACCESS</span>
+<span class="material-symbols-outlined text-[14px]">public</span>
+</div>
+</div>
+</div>
+<!-- Card 3: History -->
+<div class="matte-surface group overflow-hidden cursor-pointer">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale opacity-80" data-alt="A moody, high-contrast black and white architectural shot of ancient stone pillars against a pitch black sky. The lighting highlights the weathered textures of the stone with surgical precision. The atmosphere is solemn, prestigious, and timeless, perfectly matching a luxury dark minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnn4FNjdijTa9BA5YP8OG6mK-CQ-SZsOxN1ocR14KLfsEES1JFylNrW7O6Pp51E4GOKoNeyygzB0ZTIlMREZ-KO0RE4fHdupv5FaVH6tQzgC0rdX4NOzMyqjsURrkLcugJRWbupbg0TaFYVQSKPMggdy9NSL-K24JaG2R_63r2dLcg1b6OA14s3Lqo0K203QHahI9ALfrMaZzLJLpdMcnyfdyJqGj2pQxhYX3f3lCSkHaubY_3BSyLtOdP3OBwVtL43QEmovldRyM')"></div>
+<div class="absolute top-4 left-4 bg-black/80 px-3 py-1 text-[10px] font-bold tracking-widest text-primary border border-primary/20">PREMIUM</div>
+</div>
+<div class="p-stack-md border-t border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">HISTORY</h3>
+<p class="text-on-surface-variant text-sm opacity-70">Empire building, strategic warfare, and the lineages of power.</p>
+<div class="mt-4 flex items-center gap-2 font-mono-data text-[12px] text-primary">
+<span>LEVEL 7 CLEARANCE</span>
+<span class="material-symbols-outlined text-[14px]">security</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop border-t border-outline-variant bg-[#080808]">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-xl text-on-surface uppercase mb-stack-md tracking-tighter">ARE YOU PREPARED?</h2>
+<div class="flex flex-col items-center gap-stack-lg">
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps py-5 px-16 hover:brightness-110 transition-all border-none">
+                        Initiate Sequence
+                    </button>
+<a class="text-on-surface-variant font-mono-data hover:text-white transition-all underline decoration-outline-variant underline-offset-8" href="#">
+                        Learn More
+                    </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-on-surface-variant font-mono-data text-mono-data border-t border-outline-variant flat no shadows flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-lg w-full">
+<div class="mb-4 md:mb-0">
+                © 2024 MASSS67 PERFORMANCE SYSTEMS
+            </div>
+<div class="flex gap-stack-lg">
+<a class="text-on-secondary-fixed-variant hover:text-primary underline transition-all cursor-default" href="#">Privacy Policy</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary underline transition-all cursor-default" href="#">Terms of Service</a>
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+<span class="text-on-surface">Server Status: Operational</span>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for numbers
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.tabular-nums');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.innerText.replace(/[$,k,M,]/g, ''));
+                let current = 0;
+                const increment = target / 100;
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = (counter.innerText.startsWith('$') ? '$' : '') + 
+                                            Math.floor(current).toLocaleString() + 
+                                            (counter.innerText.includes('M') ? 'M' : '');
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        // Ensure final value is exact
+                    }
+                };
+                // Initial kick-off could be handled by Intersection Observer
+                updateCounter();
+            });
+        });
+    </script>
+</body></html>

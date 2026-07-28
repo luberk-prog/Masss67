@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MASSS67 | Global Rankings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .obsidian-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.3s ease;
+        }
+        .obsidian-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .performance-red-accent {
+            box-shadow: inset 2px 0 0 0 #ff5545;
+        }
+        .glass-modal {
+            backdrop-filter: blur(30px);
+            background: rgba(13, 13, 13, 0.8);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .stat-divider {
+            width: 1px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        /* Custom scrollbar for data-dense areas */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2a",
+                      "outline-variant": "#5d3f3b",
+                      "primary-container": "#ff5545",
+                      "outline": "#ad8883",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#464747",
+                      "surface-tint": "#ffb4aa",
+                      "surface-container": "#201f1f",
+                      "primary": "#ffb4aa",
+                      "inverse-primary": "#c0000a",
+                      "inverse-surface": "#e5e2e1",
+                      "on-secondary-container": "#b8b8b8",
+                      "on-error": "#690005",
+                      "on-primary-fixed-variant": "#930005",
+                      "secondary-fixed": "#e3e2e2",
+                      "tertiary-container": "#909191",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#ffdad5",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "inverse-on-surface": "#313030",
+                      "on-primary-container": "#5c0002",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "on-secondary": "#2f3131",
+                      "surface": "#131313",
+                      "surface-variant": "#353534",
+                      "background": "#131313",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container-highest": "#353534",
+                      "tertiary": "#c6c6c7",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "error": "#ffb4ab",
+                      "secondary-container": "#484949",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#2f3131",
+                      "on-tertiary-container": "#282a2a",
+                      "surface-bright": "#3a3939",
+                      "on-primary": "#690003",
+                      "on-primary-fixed": "#410001",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary": "#c7c6c6",
+                      "on-surface-variant": "#e7bdb7",
+                      "secondary-fixed-dim": "#c7c6c6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "container-max": "1280px",
+                      "base": "4px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "margin-mobile": "16px",
+                      "stack-md": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Montserrat"],
+                      "headline-md": ["Montserrat"],
+                      "display-xl": ["Montserrat"],
+                      "mono-data": ["Inter"],
+                      "display-lg-mobile": ["Montserrat"],
+                      "label-caps": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                      "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                      "body-md": ["15px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface">
+<!-- Top Navigation Bar -->
+<nav class="flex justify-between items-center px-margin-desktop w-full h-16 bg-surface dark:bg-surface border-b border-outline-variant docked full-width top-0 z-50 sticky">
+<div class="font-display-lg text-display-lg font-extrabold text-on-surface tracking-tighter">MASSS67</div>
+<div class="hidden md:flex gap-stack-lg items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Arena</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Collections</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer" href="#">Rankings</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex items-center bg-surface-container-low px-stack-sm py-1 border border-outline-variant rounded">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-mono-data text-on-surface w-32" placeholder="Search Players" type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-stack-md py-2 uppercase tracking-widest hover:opacity-90 transition-opacity">Go Pro</button>
+</div>
+</nav>
+<!-- Side Navigation Bar (Desktop) -->
+<aside class="hidden lg:flex flex-col h-screen fixed left-0 top-0 z-40 bg-surface-container dark:bg-surface-container border-r border-outline-variant w-64 pt-20">
+<div class="px-stack-lg mb-stack-lg">
+<h3 class="font-display-lg text-[20px] text-on-surface font-extrabold">Elite Player</h3>
+<p class="font-label-caps text-label-caps text-primary uppercase tracking-tighter">Rank: Grandmaster</p>
+</div>
+<nav class="flex-grow">
+<div class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps uppercase">Dashboard</span>
+</div>
+<div class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-caps text-label-caps uppercase">My Performance</span>
+</div>
+<div class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps uppercase">Lobbies</span>
+</div>
+<div class="flex items-center gap-stack-md px-stack-lg py-stack-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-caps text-label-caps uppercase">Market</span>
+</div>
+<div class="flex items-center gap-stack-md px-stack-lg py-stack-md text-primary border-l-2 border-primary bg-primary-container/10 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps uppercase">Account</span>
+</div>
+</nav>
+<div class="p-stack-lg">
+<button class="w-full bg-white text-black font-label-caps text-label-caps py-stack-md uppercase font-bold hover:bg-neutral-200 transition-colors">Join Tournament</button>
+</div>
+</aside>
+<main class="lg:ml-64 pt-8 pb-32 px-4 md:px-margin-desktop relative min-h-screen">
+<!-- Header Section -->
+<header class="mb-stack-lg max-w-container-max mx-auto">
+<div class="flex flex-col items-start gap-1">
+<h1 class="font-display-xl text-display-xl text-on-surface uppercase tracking-tight">World Rankings</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant border-l-2 border-primary-container pl-4">The top 1% of the global trivia community.</p>
+</div>
+</header>
+<!-- Podium Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-container-max mx-auto mb-16 items-end">
+<!-- Rank #2 -->
+<div class="obsidian-card p-stack-lg flex flex-col items-center text-center order-2 md:order-1 h-[280px] justify-end relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-neutral-500 opacity-50"></div>
+<div class="mb-stack-md relative">
+<img class="w-24 h-24 rounded-full border-2 border-neutral-700 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A cinematic, high-contrast portrait of a professional e-sports player in a dark room. The lighting is moody with sharp silver highlights on their features. The aesthetic is clean, minimal, and prestigious, reflecting a high-performance gaming brand with monochromatic tones and deep blacks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuUxd9nneXtDdVF_x_14HAggalzlgHsrXEJNmxBxobiNWqD0m__pJVpUL5zwEL7qMdW41G83hs95cjDsDoiuTkMvw3HO9-mIOowsCZRn70BvqyDng9OU6AmDRyrzWNk5k6Pxf0ZvozdlQ1kgyixkYfGQ6zv3XSKk_Sb80wz74oPkV1ZoWfWSntBCWeAx9wB9W3XefGPdnUDIs5surXAqEzCkKpYI3UUmgy0WBM_PsW99RqMN0B3s0_GUd64TUr9WIVT7SN4ywlksc"/>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-neutral-700 text-white text-[10px] px-2 py-0.5 font-bold rounded">#2</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">V_OXEN</h3>
+<div class="flex gap-4 mt-stack-md text-mono-data text-on-surface-variant uppercase text-[11px]">
+<div>XP <span class="text-on-surface font-bold">1.2M</span></div>
+<div class="stat-divider"></div>
+<div>Win % <span class="text-on-surface font-bold">88.4</span></div>
+</div>
+</div>
+<!-- Rank #1 (Elevated) -->
+<div class="obsidian-card p-stack-lg flex flex-col items-center text-center order-1 md:order-2 h-[340px] justify-end relative overflow-hidden group bg-gradient-to-t from-primary-container/5 to-transparent border-primary/20 scale-105 z-10 shadow-2xl">
+<div class="absolute top-0 left-0 w-full h-2 bg-primary-container"></div>
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-primary-container text-[32px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="mb-stack-md relative">
+<div class="absolute inset-0 rounded-full bg-primary-container blur-xl opacity-20 animate-pulse"></div>
+<img class="w-32 h-32 rounded-full border-4 border-primary-container object-cover grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10" data-alt="A professional studio portrait of a champion gaming athlete, captured with high-fidelity detail. The lighting uses a dramatic Performance Red key light against a deep obsidian background, creating a prestigious and disciplined atmosphere. The image is desaturated with high contrast, aligning with a luxury dark minimalist UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZmJwN2EjUjMIzYRCtciHxIEpFt93EEqb5D7u7i9W6WYr_P8ct3uFGSytapCN1qRhkL-sdt7a6CQi1tSPNQGXRz5n_VCnY-T6YGKNOm_Foip9nQBxnnMOJO6xM-Um2V5yBfvgcKIuHbtLYxQ01YTpodOI00bIwYsc15cqAuxn1ddT0sbAuDYkrBi91ZsSzT0Z_HLR4ViOc0wzIXZw-x0ABG3u_07bE8eQk3jjMfSySsk37e9_h29zl2FCz9lzXwY0BYWBI_LeEEc0"/>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container text-[12px] px-3 py-1 font-extrabold rounded">#1</div>
+</div>
+<h3 class="font-display-lg text-[32px] text-on-surface tracking-tighter">KRONOS_X</h3>
+<div class="flex gap-6 mt-stack-md text-mono-data text-on-surface-variant uppercase text-[12px]">
+<div>XP <span class="text-primary font-bold">2.8M</span></div>
+<div class="stat-divider"></div>
+<div>Win % <span class="text-primary font-bold">96.2</span></div>
+</div>
+</div>
+<!-- Rank #3 -->
+<div class="obsidian-card p-stack-lg flex flex-col items-center text-center order-3 h-[240px] justify-end relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-amber-800 opacity-50"></div>
+<div class="mb-stack-md relative">
+<img class="w-20 h-20 rounded-full border-2 border-neutral-800 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A sharp, minimalist portrait of a high-tier competitive gamer. The style is clinical and professional, featuring cold studio lighting that creates high contrast. The image is monochromatic with deep matte blacks and bright silver highlights, fitting for a prestigious gaming leaderboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbllSXcaDSkyuHzTTbr9BfXtQ99qlU4OJjIeiImOwLqtQUwY7qhSQudJ6F8irMlpwyNFuJGl5uiMYEJ-PRRY55kSfB0ayvlNeG-u3IT3fxl92r52V2Cfff0FEujBlbcxDvB28id4PK6dRgC3bgIf1L6842fCjfYu5gkv0otmkGNN6ETIkfXTbAWjSD0mMFP0aXrr6O62zSdzxRxUNyKUaYtgmE2lwJrw6VGTaypIpFmJffzHgK4XjHpiwFItO0lb16hhxuxjLU7dw"/>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-amber-800 text-white text-[10px] px-2 py-0.5 font-bold rounded">#3</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">ZERO_SIGNAL</h3>
+<div class="flex gap-4 mt-stack-md text-mono-data text-on-surface-variant uppercase text-[11px]">
+<div>XP <span class="text-on-surface font-bold">940K</span></div>
+<div class="stat-divider"></div>
+<div>Win % <span class="text-on-surface font-bold">84.1</span></div>
+</div>
+</div>
+</section>
+<!-- Leaderboard Table Section -->
+<section class="max-w-container-max mx-auto obsidian-card overflow-hidden">
+<div class="grid grid-cols-12 px-stack-lg py-stack-md bg-[#151515] text-label-caps text-on-surface-variant uppercase tracking-widest border-b border-outline-variant">
+<div class="col-span-1">Rank</div>
+<div class="col-span-5">Player</div>
+<div class="col-span-2 text-right">Accuracy</div>
+<div class="col-span-2 text-right">Streak</div>
+<div class="col-span-2 text-right">Total XP</div>
+</div>
+<div class="divide-y divide-outline-variant/30">
+<!-- Row Template (Repeated) -->
+<div class="grid grid-cols-12 px-stack-lg py-4 items-center hover:bg-white/[0.02] transition-colors cursor-pointer group">
+<div class="col-span-1 font-mono-data text-on-surface-variant group-hover:text-primary transition-colors">04</div>
+<div class="col-span-5 flex items-center gap-stack-md">
+<img class="w-8 h-8 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="A small, circular avatar placeholder for a professional gaming profile. Minimalist, high-contrast, desaturated photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOCiYrmmk_TUTN41EwexBb1y8QgqAApPiT6nf4WpmWiVi75_yLW2OWqRjG1hZnuKR-QmsD4l4S3uza85m222QYnhFIQgsaxXg4p3GBM0yrR8cknixIXha33Wim7LczTgucH3FUEvjiLTQJo6dl64DZqDU2lRUJUOgRyUFfffuWR0PAp561Bd9t1kBmDD3BhR8y7d-FvmUmhV90joIJ_508valZBrdOZiZ4f3eqtqyBmG1MeuZ3vA1yJAn4pYxZaYfc5GGJgxxOgWI"/>
+<span class="font-body-md text-on-surface font-bold uppercase tracking-tight">CYBER_PHANTOM</span>
+<span class="text-[10px] bg-surface-container-high px-1 text-on-surface-variant rounded">PRO</span>
+</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">92.4%</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">W24</div>
+<div class="col-span-2 text-right font-mono-data text-primary font-bold">812,400</div>
+</div>
+<div class="grid grid-cols-12 px-stack-lg py-4 items-center hover:bg-white/[0.02] transition-colors cursor-pointer group">
+<div class="col-span-1 font-mono-data text-on-surface-variant group-hover:text-primary transition-colors">05</div>
+<div class="col-span-5 flex items-center gap-stack-md">
+<img class="w-8 h-8 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Small, high-contrast avatar of a gamer. Professional studio lighting, monochrome aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4BFM1vseyAXixZNswIu2_zXiR64Imq5RMJqyj_VCP-w5BIX2OXs5J3KSQmjzyVAsMSktuZ7EexGFBDIv7JEJkya28DiyK8pMnbQGM4B_ZKQSxIDQuFoJaddUli-OeDTv1SmSpUT9FMYByjkpEq4ROpU7__LlWPAhkEe_n60PoOBwjeSP9GLJJYC2YlJIvKR2ze1DFN927DbfreUgwlnEg9kHKN9t6doiP6zB0cxsPAF7KIZDUB4DVs6t3Vaowu39TdI6iYq8Oj5c"/>
+<span class="font-body-md text-on-surface font-bold uppercase tracking-tight">NEURAL_DRIFT</span>
+</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">91.8%</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">W12</div>
+<div class="col-span-2 text-right font-mono-data text-primary font-bold">788,210</div>
+</div>
+<div class="grid grid-cols-12 px-stack-lg py-4 items-center hover:bg-white/[0.02] transition-colors cursor-pointer group">
+<div class="col-span-1 font-mono-data text-on-surface-variant group-hover:text-primary transition-colors">06</div>
+<div class="col-span-5 flex items-center gap-stack-md">
+<img class="w-8 h-8 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Clean, minimalist profile avatar for a competitive player. Deep blacks and sharp lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp-tyjwtgoMltpVSG1w0WyHWQyDHsvV_axBImaQyTH2HyYXRCN_6yoUCUeO84lMEuUnXsQ1kOqNzujbV1oaVdMCH5RXhTuX75vF9uLd0mzFyXswTqxP8PLkJmCFpZpJt3CoxX0Cqi31e-mkaprI42IGCTYbwQa9FwmtEJbjctsp6uozjNtGG3YrjwZ0GRIQMxpsPfycc8IDcIjIqDk8y4PSuAQiOyX6vCR9btCJbdgvtKxBLWotRcwJ3ewRUh3IPSrl5dTjCPBvxc"/>
+<span class="font-body-md text-on-surface font-bold uppercase tracking-tight">VOID_RUNNER</span>
+</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">89.5%</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface-variant">L1</div>
+<div class="col-span-2 text-right font-mono-data text-primary font-bold">754,000</div>
+</div>
+<div class="grid grid-cols-12 px-stack-lg py-4 items-center hover:bg-white/[0.02] transition-colors cursor-pointer group">
+<div class="col-span-1 font-mono-data text-on-surface-variant group-hover:text-primary transition-colors">07</div>
+<div class="col-span-5 flex items-center gap-stack-md">
+<img class="w-8 h-8 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="Professional gaming avatar, high resolution portrait with moody charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-JkVeZIqE4s1HSKOKViT6yOyWPQGSUfnoqu_e4GVMEtjSPn_zxylngoHVrhxk9WFf7_fQPtYiCtpIyYEDc-BiTGJfqbBcQsL-6M-t0aXrFbTbZZNkbRLwWmtemuUNsRp2PigqQsdgPrGnFN2_gRWUqEJgbKXoxtgdd1YNV9MZHntBn6-yv3dE-StkZY2Uzt0dXDQpNMaKu3vhGZAe4rl7JdfGK71sDvm_rCHxhuiGMKErUv8qkzJ0OP0J-XLGboex8V9PLFoZNB0"/>
+<span class="font-body-md text-on-surface font-bold uppercase tracking-tight">EXO_SUIT</span>
+</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">88.2%</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">W5</div>
+<div class="col-span-2 text-right font-mono-data text-primary font-bold">731,900</div>
+</div>
+<div class="grid grid-cols-12 px-stack-lg py-4 items-center hover:bg-white/[0.02] transition-colors cursor-pointer group">
+<div class="col-span-1 font-mono-data text-on-surface-variant group-hover:text-primary transition-colors">08</div>
+<div class="col-span-5 flex items-center gap-stack-md">
+<img class="w-8 h-8 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="High fidelity monochrome avatar portrait. Clinical, sharp, elite gaming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzcSBulZOdN_x-i8KkCThiqfZ8h9aUh0mgEqYcJiaug7gPVE431xfUntflpaA2V_H8TUyHKIpyi4ojaGeRDKW2KbQUV1vpwHX_TyxWGq7y06MFAXwl-F0bh1ciysXwz1s5vOGlkT3INkZlac34UtaqkshiUQRoHymopBXesb8WAUqd1rK6VVnaytWY8qQoEAYwC6gT0LbgC41hufI4AJxIQmwAa1PKQ9mJVI1Dmf8coTPAuy2XZGzkhGIdmc2XAJdpCsUeMVZp9CA"/>
+<span class="font-body-md text-on-surface font-bold uppercase tracking-tight">FLUX_CAPACITOR</span>
+</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">87.9%</div>
+<div class="col-span-2 text-right font-mono-data text-on-surface">W2</div>
+<div class="col-span-2 text-right font-mono-data text-primary font-bold">712,050</div>
+</div>
+</div>
+<!-- Fade Effect -->
+<div class="h-32 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
+</section>
+<!-- Current User Context Bar -->
+<div class="fixed bottom-0 left-0 lg:left-64 right-0 z-40 bg-surface-container-high border-t border-primary/30 py-4 px-4 md:px-margin-desktop performance-red-accent shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex items-center gap-stack-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Current Standing</span>
+<span class="font-display-lg text-[24px] text-on-surface">RANK #1,429</span>
+</div>
+<div class="h-10 w-px bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Your Accuracy</span>
+<span class="font-mono-data text-body-lg text-primary">76.4%</span>
+</div>
+<div class="h-10 w-px bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">To Next Tier</span>
+<span class="font-mono-data text-body-lg text-on-surface">14,200 XP</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant animate-pulse flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                        LIVE SESSION ACTIVE
+                    </span>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-stack-lg py-2 uppercase font-bold tracking-widest hover:brightness-110 transition-all">ENTER ARENA</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="lg:ml-64 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant full-width z-30 relative">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-lg w-full">
+<div class="font-mono-data text-mono-data text-on-surface-variant mb-4 md:mb-0 uppercase">© 2024 MASSS67 PERFORMANCE SYSTEMS</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-mono-data text-mono-data text-on-secondary-fixed-variant hover:text-primary underline transition-all" href="#">Privacy Policy</a>
+<a class="font-mono-data text-mono-data text-on-secondary-fixed-variant hover:text-primary underline transition-all" href="#">Terms of Service</a>
+<div class="flex items-center gap-2 text-on-secondary-fixed-variant font-mono-data text-mono-data">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Server Status: Operational
+                </div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for leaderboard rows
+        document.querySelectorAll('.obsidian-card.overflow-hidden .grid').forEach(row => {
+            row.addEventListener('click', () => {
+                // Flash effect
+                row.classList.add('bg-primary-container/10');
+                setTimeout(() => {
+                    row.classList.remove('bg-primary-container/10');
+                }, 200);
+            });
+        });
+
+        // Sticky user context bar reveal logic (optional - can be fixed)
+        let lastScrollTop = 0;
+        const userBar = document.querySelector('.fixed.bottom-0');
+        
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 100) {
+                userBar.classList.add('translate-y-0');
+                userBar.classList.remove('translate-y-full');
+            } else {
+                // Optional: hide when at the very top
+                // userBar.classList.add('translate-y-full');
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body></html>

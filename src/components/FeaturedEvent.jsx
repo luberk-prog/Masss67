@@ -1,119 +1,105 @@
 import React from 'react';
-import { Play, Users } from 'lucide-react';
-
-/* Cinematic hero using a high-quality Unsplash photo of a stadium */
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1800&q=85&auto=format&fit=crop';
 
 export default function DiscoveryHero({ onOpenQuiz, onOpenParty }) {
   return (
     <section style={{
       position: 'relative',
-      width: '100%',
-      height: '540px',
+      minHeight: '720px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '0 48px',
       overflow: 'hidden',
     }}>
-      {/* ── Cinematic background image ── */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        backgroundImage: `url("${HERO_IMAGE}")`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 30%',
-        transform: 'scale(1.02)',
-        transition: 'transform 6s ease',
-      }} />
+      <div
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          opacity: 0.2,
+          backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMvndj74mZ2wD9_CB36NyUN8SD_3QQMNsiyYWjbxIgk_YCWyLSX2KMRSFBoVIhn_9MNPLqFmJesbv5dgAZdUm4kVD_th3MYgAA3A-vD8nDrQHJRZcCdjreOYsb9Z2KUZM1oC3F_Cw6kuyKTscsPwISIUjByCVR3nruwyGdKXpZR3Yh7Mts1pqnQJLRX1kUiHr9gjhqQ-I27evBZTZGq1B2LbcAk0SHLHcmqQHE7nDfUExMwDTI7OpAKsLEPg5MvATNBGwMyqlww38')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'grayscale',
+        }}
+      />
 
-      {/* ── Dark gradient overlay (bottom-heavy, allows image to breathe at top) ── */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(to right, rgba(14,17,24,0.92) 40%, rgba(14,17,24,0.30) 100%), linear-gradient(to top, rgba(14,17,24,0.85) 0%, transparent 60%)',
-      }} />
-
-      {/* ── Content ── */}
-      <div style={{
-        position: 'relative',
-        zIndex: 10,
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        padding: '0 80px 64px',
-        maxWidth: '720px',
-      }}>
-        {/* Collection label */}
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          marginBottom: '16px',
-        }}>
-          <span style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '0.1em',
-            color: 'var(--text-3)',
-            fontFamily: 'var(--f-head)',
-            textTransform: 'uppercase',
-          }}>
-            Featured Collection
-          </span>
-          <span style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px',
-            fontSize: '11px',
-            fontWeight: 600,
-            color: 'var(--live)',
-            fontFamily: 'var(--f-num)',
-          }}>
-            <span className="live-dot" />
-            3,240 playing now
-          </span>
-        </div>
-
-        {/* Headline */}
+      <div style={{ position: 'relative', zIndex: 10, maxWidth: '48rem' }}>
         <h1 style={{
-          fontFamily: 'var(--f-head)',
-          fontSize: '52px',
+          fontFamily: 'Montserrat, system-ui, sans-serif',
+          fontSize: '64px',
           fontWeight: 800,
           lineHeight: 1.1,
-          letterSpacing: '-0.03em',
-          color: 'var(--text)',
-          marginBottom: '16px',
-          maxWidth: '600px',
+          letterSpacing: '-0.04em',
+          color: '#E5E2E1',
+          marginBottom: '1rem',
+          textTransform: 'uppercase',
+          textAlign: 'left',
         }}>
-          UEFA Champions League Collection
+          THE ELITE<br />
+          COMPETITIVE ARENA
         </h1>
-
-        {/* Supporting sentence */}
         <p style={{
-          fontSize: '16px',
-          color: 'var(--text-2)',
+          fontFamily: 'Inter, system-ui, sans-serif',
+          fontSize: '18px',
           lineHeight: 1.6,
-          marginBottom: '32px',
-          maxWidth: '480px',
+          color: '#C9C6C6',
+          borderLeft: '2px solid #FF5545',
+          paddingLeft: '1rem',
+          maxWidth: '2.5rem',
+          marginBottom: '2rem',
         }}>
-          200 questions across group stages, knockouts and finals. How well do you know Europe's greatest competition?
+          The definitive destination for high-stakes multiplayer trivia. Outperform. Outthink. Ascend.
         </p>
 
-        {/* Two CTAs only */}
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
           <button
-            className="btn btn-primary"
             onClick={onOpenQuiz}
-            style={{ padding: '13px 28px', fontSize: '15px' }}
+            style={{
+              background: '#FFFFFF',
+              color: '#000000',
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              padding: '1rem 2.5rem',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              transition: 'background-color 0.15s ease',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#E5E2E1'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = '#FFFFFF'; }}
           >
-            <Play size={16} fill="#fff" stroke="none" />
-            Play Now
+            Enter the Arena
           </button>
           <button
-            className="btn btn-secondary"
             onClick={onOpenParty}
-            style={{ padding: '13px 24px', fontSize: '15px' }}
+            style={{
+              border: '2px solid rgba(255,255,255,0.2)',
+              background: 'transparent',
+              color: '#FFFFFF',
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              padding: '1rem 2.5rem',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              transition: 'all 0.15s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+            }}
           >
-            <Users size={16} />
-            Create Party
+            Browse Collections
           </button>
         </div>
       </div>

@@ -47,73 +47,108 @@ const LIVE_PARTIES = [
 export default function LiveParties({ onOpenParty }) {
   return (
     <section style={{
-      maxWidth: '1600px',
-      margin: '40px auto',
-      padding: '0 24px'
+      maxWidth: '1520px',
+      margin: '40px auto 0',
+      padding: '0 32px',
     }}>
       <div style={{
         display: 'flex',
-        justify: 'space-between',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '20px'
+        marginBottom: '24px'
       }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#4ADE80', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em' }}>
-            <span className="live-dot" /> MULTIPLAYER LOBBIES
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--live)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.1em', fontFamily: 'var(--f-num)' }}>
+            <span className="live-dot" /> LIVE PARTIES
           </div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#FFF', marginTop: '2px' }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text)', marginTop: '4px', fontFamily: 'var(--f-head)' }}>
             Active Party Lobbies
           </h2>
         </div>
 
-        <button className="btn-secondary" onClick={onOpenParty} style={{ fontSize: '0.85rem' }}>
-          <Plus size={15} /> Host Party Lobby
+        <button
+          onClick={onOpenParty}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '12px 20px',
+            fontSize: '14px',
+            fontWeight: 600,
+            fontFamily: 'var(--f-head)',
+            borderRadius: '10px',
+            background: 'var(--surface-card)',
+            border: '1px solid var(--border)',
+            color: 'var(--text)',
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'var(--surface-hover)';
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'var(--surface-card)';
+            e.currentTarget.style.borderColor = 'var(--border)';
+          }}
+        >
+          <Plus size={16} /> Host Party
         </button>
       </div>
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-        gap: '20px'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        gap: '16px'
       }}>
         {LIVE_PARTIES.map((party) => (
           <div
             key={party.id}
-            className="game-card"
             style={{
               padding: '20px',
+              borderRadius: '16px',
+              background: 'var(--surface-card)',
+              border: '1px solid var(--border)',
               display: 'flex',
               flexDirection: 'column',
-              justify: 'space-between',
-              gap: '16px'
+              gap: '16px',
+              transition: 'all 0.15s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <div style={{
-                  width: '38px',
-                  height: '38px',
+                  width: '36px',
+                  height: '36px',
                   borderRadius: '50%',
-                  background: 'var(--surface-hover)',
+                  background: 'var(--bg-2)',
                   display: 'flex',
                   alignItems: 'center',
-                  justify: 'center',
-                  fontWeight: 700,
-                  color: '#FFF',
-                  border: '1px solid var(--border-bright)'
+                  justifyContent: 'center',
+                  fontWeight: 600,
+                  color: 'var(--text-2)',
+                  border: '1px solid var(--border)'
                 }}>
                   {party.hostAvatar}
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>HOST: {party.host}</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#FFF' }}>{party.title}</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-3)', fontFamily: 'var(--f-num)' }}>HOST: {party.host}</div>
+                  <div style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text)', fontFamily: 'var(--f-head)' }}>{party.title}</div>
                 </div>
               </div>
             </div>
 
             <div style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              borderRadius: 'var(--r-sm)',
+              background: 'rgba(255,255,255,0.03)',
+              borderRadius: '10px',
               padding: '10px 14px',
               display: 'flex',
               justify: 'space-between',
@@ -121,18 +156,18 @@ export default function LiveParties({ onOpenParty }) {
               border: '1px solid var(--border)'
             }}>
               <div>
-                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>MODE</div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#FFF' }}>{party.mode}</div>
+                <div style={{ fontSize: '11px', color: 'var(--text-3)', fontFamily: 'var(--f-num)' }}>MODE</div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text)', fontFamily: 'var(--f-num)' }}>{party.mode}</div>
               </div>
 
               <div>
-                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>SLOTS</div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#FFF', fontFamily: 'var(--font-num)' }}>{party.players}</div>
+                <div style={{ fontSize: '11px', color: 'var(--text-3)', fontFamily: 'var(--f-num)' }}>SLOTS</div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text)', fontFamily: 'var(--f-num)' }}>{party.players}</div>
               </div>
 
               <div>
-                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>LATENCY</div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#4ADE80', fontFamily: 'var(--font-num)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div style={{ fontSize: '11px', color: 'var(--text-3)', fontFamily: 'var(--f-num)' }}>LATENCY</div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--live)', fontFamily: 'var(--f-num)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <Wifi size={12} /> {party.ping}
                 </div>
               </div>
@@ -144,16 +179,38 @@ export default function LiveParties({ onOpenParty }) {
               </span>
 
               <button
-                className="btn-primary"
                 disabled={party.privacy === 'FULL'}
                 onClick={onOpenParty}
                 style={{
-                  padding: '7px 18px',
-                  fontSize: '0.8rem',
-                  opacity: party.privacy === 'FULL' ? 0.4 : 1
+                  padding: '8px 16px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  fontFamily: 'var(--f-head)',
+                  borderRadius: '8px',
+                  background: party.privacy === 'FULL' ? 'rgba(0,196,204,0.1)' : 'var(--accent)',
+                  color: party.privacy === 'FULL' ? 'var(--text-2)' : '#FFFFFF',
+                  border: 'none',
+                  cursor: party.privacy === 'FULL' ? 'default' : 'pointer',
+                  opacity: party.privacy === 'FULL' ? 0.5 : 1,
+                  transition: 'all 0.15s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+                onMouseEnter={e => {
+                  if (party.privacy !== 'FULL') {
+                    e.currentTarget.style.background = 'var(--accent-hov)';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (party.privacy !== 'FULL') {
+                    e.currentTarget.style.background = 'var(--accent)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }
                 }}
               >
-                {party.privacy === 'FULL' ? 'Lobby Full' : 'Join Lobby'} <ArrowRight size={13} />
+                {party.privacy === 'FULL' ? 'Lobby Full' : 'Join Lobby'} <ArrowRight size={12} />
               </button>
             </div>
           </div>
